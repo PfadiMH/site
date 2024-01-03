@@ -24,11 +24,11 @@ export function redirectToHomepage() {
   };
 }
 
-// This function will build the url to fetch on the Strapi API
-export function getData(slug, locale) {
-  const slugToReturn = `/${slug}?lang=${locale}`;
-  const apiUrl = `/pages?slug=${slug}&_locale=${locale}`;
 
+// This function will build the url to fetch on the Strapi API
+export function getData(slug) {
+  const slugToReturn = `/${slug}`;
+  const apiUrl = `/api/pages?filters[slug][$eq]=${slug}&populate=deep`;
   return {
     data: getStrapiURL(apiUrl),
     slug: slugToReturn,

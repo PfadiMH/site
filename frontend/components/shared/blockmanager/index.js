@@ -8,7 +8,6 @@ const getBlockComponent = ({ __component, ...rest }, index) => {
             Block = Switcher;
             break;
     }
-
     return Block ? <Block key={`index-${index}`} {...rest} /> : null;
 };
 

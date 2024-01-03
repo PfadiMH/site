@@ -1,8 +1,8 @@
 import delve from "dlv";
+import axios from "axios";
 
 import { getDataDependencies } from "./services/api";
 import { redirectToHomepage, getData } from "../utils";
-import { getLocalizedParams } from "../utils/localize";
 
 const Universals = ({ pageData }) => {
   const blocks = delve(pageData, "blocks");
@@ -10,18 +10,18 @@ const Universals = ({ pageData }) => {
 };
 
 export async function getServerSideProps(context) {
-  const { slug, locale } = getLocalizedParams(context.query);
+  const slug = delve(context.query, "slug");
 
   try {
-    const data = getData(slug, locale);
-    const res = await fetch(delve(data, "data"));
-    const json = await res.json();
+    const data = getData(slug);
+    const res = await axios.get(delve(data, "data"));
+    const json = await res.data;
 
-    if (!json.length) {
+    if (delve(json.data, "0") == null) {
       return redirectToHomepage();
     }
 
-    const pageData = await getDataDependencies(delve(json, "0"));
+    const pageData = await getDataDependencies(delve(json.data, "0"));
     console.log(pageData);
     return {
       props: { pageData },
