@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_switching_collections",
+  "info": {
+    "displayName": "switching-collection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "switches": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.home"
+    }
+  }
+}
