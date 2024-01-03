@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_pages",
+  "info": {
+    "displayName": "Page",
+    "icon": "expand",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Hero": {
+      "type": "blocks",
+      "required": true
+    },
+    "about": {
+      "type": "blocks"
+    }
+  }
+}

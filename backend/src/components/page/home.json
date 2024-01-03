@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_homes",
+  "info": {
+    "displayName": "Home",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

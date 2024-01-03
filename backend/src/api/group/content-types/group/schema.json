@@ -20,6 +20,13 @@
     "Description": {
       "type": "blocks",
       "required": true
+    },
+    "Dynamic": {
+      "type": "dynamiczone",
+      "components": [
+        "page.page",
+        "page.home"
+      ]
     }
   }
 }

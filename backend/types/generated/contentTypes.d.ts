@@ -376,6 +376,7 @@ export interface ApiGroupGroup extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String & Attribute.Required & Attribute.Unique;
     Description: Attribute.Blocks & Attribute.Required;
+    Dynamic: Attribute.DynamicZone<['page.page', 'page.home']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
