@@ -29,7 +29,8 @@
         "blocks.home",
         "blocks.meta",
         "blocks.page",
-        "blocks.seo"
+        "blocks.seo",
+        "blocks.switching-collection"
       ]
     }
   }
