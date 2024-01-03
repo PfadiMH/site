@@ -21,11 +21,11 @@
       "type": "blocks",
       "required": true
     },
-    "Dynamic": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
-        "page.page",
-        "page.home"
+        "blocks.home",
+        "blocks.page"
       ]
     }
   }
