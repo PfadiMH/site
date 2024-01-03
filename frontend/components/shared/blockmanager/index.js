@@ -1,11 +1,11 @@
-import Page from '../../blocks/Page';
+import Switcher from '../../blocks/Switcher';
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
     let Block;
 
     switch (__component) {
-        case 'blocks.page':
-            Block = Page;
+        case 'blocks.switcher':
+            Block = Switcher;
             break;
     }
 

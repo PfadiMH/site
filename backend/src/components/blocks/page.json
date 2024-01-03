@@ -7,12 +7,21 @@
   },
   "options": {},
   "attributes": {
-    "Hero": {
-      "type": "blocks",
-      "required": true
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     },
-    "about": {
-      "type": "blocks"
+    "header": {
+      "displayName": "header",
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.header"
     }
   }
 }

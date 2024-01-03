@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_metas",
+  "info": {
+    "displayName": "meta",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    }
+  }
+}

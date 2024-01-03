@@ -1,25 +1,15 @@
 {
   "collectionName": "components_page_homes",
   "info": {
-    "displayName": "Home",
-    "icon": "book",
+    "displayName": "switcher",
+    "icon": "cursor",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "date": {
-      "type": "date"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "on": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
