@@ -26,11 +26,13 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.home",
         "blocks.meta",
         "blocks.page",
         "blocks.seo",
-        "blocks.switching-collection"
+        "blocks.switching-collection",
+        "blocks.header",
+        "blocks.text",
+        "blocks.toggle"
       ]
     }
   }

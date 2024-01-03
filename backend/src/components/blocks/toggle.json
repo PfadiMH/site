@@ -1,14 +1,13 @@
 {
-  "collectionName": "components_page_homes",
+  "collectionName": "components_blocks_toggles",
   "info": {
-    "displayName": "switcher",
-    "icon": "cursor",
-    "description": ""
+    "displayName": "toggle"
   },
   "options": {},
   "attributes": {
     "on": {
       "type": "boolean",
+      "default": true,
       "required": true
     }
   }
