@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_blocks_texts",
+  "info": {
+    "displayName": "text",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}
