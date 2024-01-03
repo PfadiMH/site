@@ -4,12 +4,13 @@ import axios from "axios";
 import { getDataDependencies } from "./services/api";
 import { redirectToHomepage, getData } from "../utils";
 import Layout from "../components/Layout";
+import BlockManager from "../components/shared/Blockmanager";
 
 const Universals = ({ pageData }) => {
   const blocks = delve(pageData, "blocks");
   return (
     <Layout>
-
+      <BlockManager blocks={blocks} />
     </Layout>
   );
 };
