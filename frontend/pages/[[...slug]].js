@@ -3,10 +3,15 @@ import axios from "axios";
 
 import { getDataDependencies } from "./services/api";
 import { redirectToHomepage, getData } from "../utils";
+import Layout from "../components/Layout";
 
 const Universals = ({ pageData }) => {
   const blocks = delve(pageData, "blocks");
-  return <div></div>;
+  return (
+    <Layout>
+
+    </Layout>
+  );
 };
 
 export async function getServerSideProps(context) {
@@ -22,7 +27,6 @@ export async function getServerSideProps(context) {
     }
 
     const pageData = await getDataDependencies(delve(json.data, "0"));
-    console.log(pageData);
     return {
       props: { pageData },
     };
