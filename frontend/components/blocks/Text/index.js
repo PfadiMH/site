@@ -2,7 +2,7 @@ import delve from 'dlv';
 
 const Text = ({ text }) => {
     return (
-        <p className="mt-3 text-lg text-white">
+        <p className="ml-10">
             {text}
         </p>
     );
