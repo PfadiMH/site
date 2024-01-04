@@ -32,8 +32,17 @@
         "blocks.switching-collection",
         "blocks.header",
         "blocks.text",
-        "blocks.toggle"
+        "blocks.toggle",
+        "blocks.image"
       ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "home",
+        "article"
+      ],
+      "required": true
     }
   }
 }

@@ -22,18 +22,16 @@
     "preventIndexing": {
       "type": "boolean"
     },
-    "structuredData": {
-      "type": "json"
-    },
     "metaImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
