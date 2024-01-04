@@ -5,11 +5,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "switches": {
-      "type": "component",
-      "repeatable": true,
-      "component": "blocks.home"
-    }
-  }
+  "attributes": {}
 }

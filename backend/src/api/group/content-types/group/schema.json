@@ -15,7 +15,6 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.home",
         "blocks.page"
       ]
     }

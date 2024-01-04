@@ -1,9 +1,9 @@
 import delve from 'dlv';
 
-const Text = ({ text }) => {
+const Text = ({ on }) => {
     return (
         <p className="mt-3 text-lg text-white">
-            {text}
+            {String(on)}
         </p>
     );
 };
