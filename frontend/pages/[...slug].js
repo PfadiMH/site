@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { getDataDependencies } from "./services/api";
 import { redirectToHomepage, getPageData } from "../utils";
-import ArticleLayout from "../components/laout types/article";
+import ArticleLayout from "../components/layout types/article";
 import BlockManager from "../components/shared/Blockmanager";
 
 const Universals = ({ pageData }) => {
