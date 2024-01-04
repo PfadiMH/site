@@ -34,7 +34,8 @@
         "blocks.text",
         "blocks.toggle",
         "blocks.image",
-        "blocks.step"
+        "blocks.step",
+        "blocks.download"
       ]
     },
     "type": {
