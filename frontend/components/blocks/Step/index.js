@@ -8,10 +8,12 @@ const MyStep = ({ title, description, image }) => {
     const url = getStrapiMedia(image.url);
 
     return (
-        <div>
-            <p>{title}</p>
-            <p>{description}</p>
-            <Image src={url} alt="My Image" width={100} height={100} />
+        <div className="container mx-auto px-4">
+            <div className="font-bold text-3xl">{title}</div>
+            <div className="my-8 flex flex-row gap-8">
+                <Image src={url} alt="My Image" width={300} height={300} className="rounded-lg" />
+                <p className="my-3">{description}</p>
+            </div>
         </div>
     );
 };

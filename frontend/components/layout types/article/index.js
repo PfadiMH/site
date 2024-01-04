@@ -2,15 +2,16 @@ import React from 'react';
 
 const ArticleLayout = ({ children, props }) => {
     return (
-        <div>
+        <div className='flex items-center content-center flex-col'>
+
             {/* Add your header component here */}
-            <header>
+            <header className='w-full'>
                 {/* Header content */}
-                <h1>{props.title}</h1>
+                <h1 className='text-4xl font-bold border-b-2 text-center py-7 border-solid'>{props.title}</h1>
             </header>
 
             {/* Add your main content here */}
-            <main>
+            <main className='py-3'>
                 {children}
             </main>
 
