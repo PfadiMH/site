@@ -1,19 +1,19 @@
 import delve from 'dlv';
+import Image from 'next/image';
+import { getStrapiMedia } from '../../../utils';
 
-const Image = ({ image }) => {
-    console.log(image);
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    //const url = apiUrl + image.data.attributes.url;
+const MyImage = ({ image }) => {
+    image = delve(delve(image, "data"), "attributes");
+
+    const url = getStrapiMedia(image.url);
 
     return (
-        <Image
-            src=""
-            width={500}
-            height={300}
-        />
+        <>
+            <Image src={url} alt="My Image" width={100} height={100} />
+        </>
     );
 };
 
-Image.defaultProps = {};
+export default MyImage;
 
-export default Image;
+Image.defaultProps = {};    
