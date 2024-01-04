@@ -33,14 +33,16 @@
         "blocks.header",
         "blocks.text",
         "blocks.toggle",
-        "blocks.image"
+        "blocks.image",
+        "blocks.step"
       ]
     },
     "type": {
       "type": "enumeration",
       "enum": [
         "home",
-        "article"
+        "article",
+        "epic other page"
       ],
       "required": true
     }

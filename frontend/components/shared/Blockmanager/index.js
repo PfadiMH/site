@@ -11,6 +11,9 @@ const Toggle = dynamic(() => import('../../blocks/Toggle'), {
 const MyImage = dynamic(() => import('../../blocks/Image'), {
     ssr: false,
 });
+const MyStep = dynamic(() => import('../../blocks/Step'), {
+    ssr: false,
+});
 
 const BlockManager = ({ blocks, contentType, pageData, type }) => {
     const router = useRouter();
@@ -30,6 +33,9 @@ const BlockManager = ({ blocks, contentType, pageData, type }) => {
                         break;
                     case 'blocks.image':
                         Block = MyImage;
+                        break;
+                    case 'blocks.step':
+                        Block = MyStep;
                         break;
                 }
 

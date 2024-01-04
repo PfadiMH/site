@@ -2,12 +2,13 @@
   "collectionName": "components_blocks_texts",
   "info": {
     "displayName": "text",
-    "icon": "book"
+    "icon": "book",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "text": {
-      "type": "string"
+      "type": "text"
     }
   }
 }
