@@ -2,24 +2,33 @@ import delve from "dlv";
 import axios from "axios";
 
 import { getDataDependencies } from "./services/api";
-import { redirectToHomepage, getData } from "../utils";
-import Layout from "../components/Layout";
+import { redirectToHomepage, getPageData } from "../utils";
+import ArticleLayout from "../components/laout types/article";
 import BlockManager from "../components/shared/Blockmanager";
 
 const Universals = ({ pageData }) => {
   const blocks = delve(pageData, "blocks");
-  return (
-    <Layout>
-      <BlockManager blocks={blocks} />
-    </Layout>
-  );
+  console.log(pageData.attributes.type);
+  if (pageData.attributes.type == "article") {
+    return (
+      <ArticleLayout props={pageData.attributes}>
+        <BlockManager blocks={blocks} />
+      </ArticleLayout>
+    );
+  } else {
+    return (
+      <div>
+        <h1>404 - Article not found</h1>
+      </div>
+    );
+  }
 };
 
 export async function getServerSideProps(context) {
   const slug = delve(context.query, "slug");
 
   try {
-    const data = getData(slug);
+    const data = getPageData(slug);
     const res = await axios.get(delve(data, "data"));
     const json = await res.data;
 

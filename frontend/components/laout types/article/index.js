@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Layout = ({ children }) => {
+const ArticleLayout = ({ children, props }) => {
     return (
         <div>
             {/* Add your header component here */}
             <header>
                 {/* Header content */}
+                <h1>{props.title}</h1>
             </header>
 
             {/* Add your main content here */}
@@ -21,4 +22,4 @@ const Layout = ({ children }) => {
     );
 };
 
-export default Layout;
+export default ArticleLayout;
