@@ -9,18 +9,20 @@ import BlockManager from "../components/shared/Blockmanager";
 const Universals = ({ pageData }) => {
   const blocks = delve(pageData, "blocks");
   console.log(pageData.attributes.type);
-  if (pageData.attributes.type == "article") {
-    return (
-      <ArticleLayout props={pageData.attributes}>
-        <BlockManager blocks={blocks} />
-      </ArticleLayout>
-    );
-  } else {
-    return (
-      <div>
-        <h1>404 - Article not found</h1>
-      </div>
-    );
+
+  switch (pageData.attributes.type) {
+    case "article":
+      return (
+        <ArticleLayout props={pageData.attributes}>
+          <BlockManager blocks={blocks} />
+        </ArticleLayout>
+      );
+    default:
+      return (
+        <div>
+          <h1>404 - Article not found</h1>
+        </div>
+      );
   }
 };
 
