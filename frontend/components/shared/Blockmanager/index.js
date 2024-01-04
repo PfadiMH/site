@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 
 import { useRouter } from 'next/router';
+import Image from '../../blocks/Image';
 
 const MyText = dynamic(() => import('../../blocks/Text'), {
     ssr: false,
@@ -24,6 +25,9 @@ const BlockManager = ({ blocks, contentType, pageData, type }) => {
 
                     case 'blocks.toggle':
                         Block = Toggle;
+                        break;
+                    case 'blocks.image':
+                        Block = Image;
                         break;
                 }
 
