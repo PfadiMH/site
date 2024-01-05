@@ -6,6 +6,8 @@ services:
     restart: always #change if you don't want your container restarting
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL="http://localhost:1337"
+      - NEXT_PUBLIC_API_PROTOCOL='http',
+      - NEXT_PUBLIC_API_HOSTNAME='mystrapi',
+      - NEXT_PUBLIC_API_PORT='1337',
     ports:
       - 3000:3000
