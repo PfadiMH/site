@@ -5,9 +5,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'mystrapi',
-        port: '1337',
+        protocol: process.env.NEXT_PUBLIC_API_PROTOCOL || 'http',
+        hostname: process.env.NEXT_PUBLIC_API_HOST || 'localhost',
+        port: process.env.NEXT_PUBLIC_API_PORT || '1337',
         pathname: '/uploads/**',
       },
     ],
