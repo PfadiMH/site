@@ -4,7 +4,7 @@ import { getStrapiMedia } from '../../../utils';
 import Richtext from '../Richtext';
 
 const MyStep = ({ title, description, image }) => {
-    image = delve(delve(image, "data"), "attributes");
+    image = delve(delve(delve(delve(image, "data"), "attributes"), "formats"), "medium");
 
     const url = getStrapiMedia(image.url);
 

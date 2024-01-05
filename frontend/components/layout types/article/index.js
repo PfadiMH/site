@@ -11,7 +11,7 @@ const ArticleLayout = ({ children, props }) => {
             </header>
 
             {/* Add your main content here */}
-            <main className='py-3'>
+            <main className='py-3 container mx-auto px-4 w-[750px]'>
                 {children}
             </main>
 
