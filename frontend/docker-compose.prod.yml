@@ -1,0 +1,11 @@
+version: "3.8"
+services: 
+  frontend:
+    container_name: frontend
+    build: .
+    restart: always #change if you don't want your container restarting
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL="http://localhost:1337"
+    ports:
+      - 3000:3000

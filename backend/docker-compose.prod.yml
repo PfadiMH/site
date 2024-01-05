@@ -2,11 +2,11 @@ version: '3'
 services:
   mystrapi:
     container_name: mystrapi
-    build: 
+    build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     image: mystrapi:latest
-    #restart: unless-stopped
+    restart: unless-stopped
     env_file: .env
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
@@ -28,6 +28,8 @@ services:
       - ./public/uploads:/opt/app/public/uploads
     ports:
       - '1337:1337'
+    networks:
+      - mystrapi
     depends_on:
       - mystrapiDB
       
@@ -47,7 +49,9 @@ services:
 
     ports:
       - '5432:5432'
-
+    networks:
+      - mystrapi
+      
   mystrapiAdminer:
     container_name: mystrapiAdminer
     image: adminer
@@ -56,6 +60,8 @@ services:
       - '9090:8080'
     environment:
       - ADMINER_DEFAULT_SERVER=mystrapiDB
+    networks:
+      - mystrapi
     depends_on:
       - mystrapiDB
 
@@ -63,6 +69,6 @@ volumes:
   mystrapi-data:
 
 networks:
-  default:
-    name: dev
-    external: true
+  mystrapi:
+    name: Mystrapi
+    driver: bridge

@@ -17,6 +17,9 @@
       "components": [
         "blocks.page"
       ]
+    },
+    "infos": {
+      "type": "blocks"
     }
   }
 }

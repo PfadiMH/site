@@ -1,7 +1,7 @@
 import delve from "dlv";
 import axios from "axios";
 
-import { getDataDependencies } from "./services/api";
+import { getDataDependencies } from "../utils/services/api";
 import { redirectToHomepage, getPageData } from "../utils";
 import ArticleLayout from "../components/layout types/article";
 import BlockManager from "../components/shared/Blockmanager";
