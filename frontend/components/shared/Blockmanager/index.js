@@ -17,6 +17,9 @@ const MyStep = dynamic(() => import('../../blocks/Step'), {
 const MyDownload = dynamic(() => import('../../blocks/Download'), {
     ssr: false,
 });
+const MyRichtext = dynamic(() => import('../../blocks/Richtext'), {
+    ssr: false,
+});
 
 const BlockManager = ({ blocks, contentType, pageData, type }) => {
     const router = useRouter();
@@ -45,6 +48,10 @@ const BlockManager = ({ blocks, contentType, pageData, type }) => {
 
                     case 'blocks.download':
                         Block = MyDownload;
+                        break;
+
+                    case 'blocks.richtext':
+                        Block = MyRichtext;
                         break;
                 }
 

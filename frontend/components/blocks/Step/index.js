@@ -19,5 +19,3 @@ const MyStep = ({ title, description, image }) => {
 };
 
 export default MyStep;
-
-Image.defaultProps = {};    
