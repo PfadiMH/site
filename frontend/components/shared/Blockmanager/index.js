@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 
 import { useRouter } from 'next/router';
+import Richtext from '../../blocks/Richtext';
 
 const MyText = dynamic(() => import('../../blocks/Text'), {
     ssr: false,
@@ -54,7 +55,6 @@ const BlockManager = ({ blocks, contentType, pageData, type }) => {
                         Block = MyRichtext;
                         break;
                 }
-
                 return Block ? (
                     <Block key={index} component={block.__component} {...block} />
                 ) : null;
