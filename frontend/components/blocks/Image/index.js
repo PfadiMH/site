@@ -9,7 +9,7 @@ const MyImage = ({ image }) => {
 
     return (
         <>
-            <Image src={url} alt="My Image" width={image.width} height={image.height} />
+            <Image src={url} alt="My Image" width={image.width} height={image.height} className="rounded-lg w-1/2 h-1/2" />
         </>
     );
 };
