@@ -9,7 +9,7 @@ const MyImage = ({ image }) => {
 
     return (
         <>
-            <Image src={url} alt="My Image" width={100} height={100} />
+            <Image src={url} alt="My Image" width={image.width} height={image.height} />
         </>
     );
 };
