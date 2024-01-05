@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_downloads",
+  "info": {
+    "displayName": "download",
+    "icon": "attachment",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "download": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "filename": {
+      "type": "string"
+    }
+  }
+}

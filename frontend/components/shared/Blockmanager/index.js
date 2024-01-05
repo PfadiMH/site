@@ -14,6 +14,9 @@ const MyImage = dynamic(() => import('../../blocks/Image'), {
 const MyStep = dynamic(() => import('../../blocks/Step'), {
     ssr: false,
 });
+const MyDownload = dynamic(() => import('../../blocks/Download'), {
+    ssr: false,
+});
 
 const BlockManager = ({ blocks, contentType, pageData, type }) => {
     const router = useRouter();
@@ -31,11 +34,17 @@ const BlockManager = ({ blocks, contentType, pageData, type }) => {
                     case 'blocks.toggle':
                         Block = Toggle;
                         break;
+
                     case 'blocks.image':
                         Block = MyImage;
                         break;
+
                     case 'blocks.step':
                         Block = MyStep;
+                        break;
+
+                    case 'blocks.download':
+                        Block = MyDownload;
                         break;
                 }
 
