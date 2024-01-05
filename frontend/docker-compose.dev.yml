@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+
+    # Set environment variables directly in the docker-compose file
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_PROTOCOL='http',
+      - NEXT_PUBLIC_API_HOSTNAME='mystrapi',
+      - NEXT_PUBLIC_API_PORT='1337',
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+networks:
+  default:
+    name: dev
+    external: true
