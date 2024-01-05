@@ -2,7 +2,7 @@ import { get } from "http";
 
 // Get the url of the Strapi API based om the env variable or the default local one.
 export function getStrapiURL(path) {
-  return `${process.env.NEXT_PUBLIC_API_PROTOCOL}://${process.env.NEXT_PUBLIC_API_HOSTNAME}.${process.env.NEXT_PUBLIC_API_PORT}${path}`;
+  return `${process.env.NEXT_PUBLIC_API_PROTOCOL}://${process.env.NEXT_PUBLIC_API_HOSTNAME}:${process.env.NEXT_PUBLIC_API_PORT}${path}`;
 }
 
 // This function will get the url of your medias depending on where they are hosted
@@ -31,6 +31,7 @@ export function redirectToHomepage() {
 export function getPageData(slug) {
   const slugToReturn = `/${slug}`;
   const apiUrl = `/api/pages?filters[slug][$eq]=${slug}&populate=deep`;
+  console.log(getStrapiURL(apiUrl));
   return {
     data: getStrapiURL(apiUrl),
     slug: slugToReturn,
