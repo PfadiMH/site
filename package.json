@@ -3,5 +3,8 @@
   "workspaces": [
     "frontend"
   ],
+  "dependencies": {
+    "pfadimh-frontend": "workspace:*"
+  },
   "packageManager": "bun@1.0.22"
 }
