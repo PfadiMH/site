@@ -3,5 +3,12 @@
 # dependencies
 node_modules
 
+# next.js
+.next/
+out/
+
 # local env files
 .env*.local
+
+# typescript
+next-env.d.ts
