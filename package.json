@@ -1,10 +1,12 @@
 {
   "name": "pfadimh",
   "workspaces": [
-    "frontend"
+    "frontend",
+    "backend"
   ],
   "dependencies": {
-    "pfadimh-frontend": "workspace:*"
+    "pfadimh-frontend": "workspace:*",
+    "pfadimh-backend": "workspace:*"
   },
   "packageManager": "bun@1.0.22"
 }
