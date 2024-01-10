@@ -1,0 +1,7 @@
+{
+  "name": "pfadimh",
+  "workspaces": [
+    "frontend"
+  ],
+  "packageManager": "bun@1.0.22"
+}
