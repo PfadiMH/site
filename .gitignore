@@ -5,3 +5,6 @@ node_modules
 
 # local env files
 .env*.local
+
+# bun lock file
+bun.lockb
