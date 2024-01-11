@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_section_posts",
+  "info": {
+    "displayName": "PostsList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "MaxPosts": {
+      "type": "integer"
+    }
+  }
+}

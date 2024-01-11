@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Path": {
+      "type": "string"
+    },
+    "Sections": {
+      "type": "dynamiczone",
+      "components": [
+        "section.group",
+        "section.content",
+        "section.posts"
+      ]
+    }
+  }
+}
