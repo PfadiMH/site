@@ -1,0 +1,17 @@
+version: "3"
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    ports:
+      - 3000:3000
+    hostname: pfadimh-site-devcontainer
+
+  directus:
+    extends:
+      file: directus/docker-compose.yml
+      service: directus
+    hostname: pfadimh-site-directus
