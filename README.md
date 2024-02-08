@@ -16,13 +16,7 @@
 
 The Directus CMS starts automatically with the devcontainer.
 
-When the schema is changed, you need to generate the typescript types for the frontend. To do this, run the following command in the terminal:
-
-> Note: You will need to remove the array type on singletons in the type `Schema`.
-
-```bash
-bunx directus-typescript-gen --host http://pfadimh-site-directus:8055 --email admin@example.com --password [your_password] > ./lib/directus.schema.d.ts
-```
+When the schema is changed, you need to generate the typescript types for the frontend. To do this, open the "Generate Types" Module in the Directus Admin Panel and download the generated types. Then, copy the types to the `./lib/directus-types.d.ts` file. After that, edit the types to use the Directus User type instead of the generated one.
 
 #### Next.js Frontend
 
