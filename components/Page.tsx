@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import directus from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 import React from "react";
@@ -16,11 +17,11 @@ export async function Page({
   footerSlot,
 }: PageProps) {
   return (
-    <div>
+    <main className="min-h-screen p-24">
       <div>{navbarSlot}</div>
       <div>{sectionsSlot}</div>
       <div>{footerSlot}</div>
-    </div>
+    </main>
   );
 }
 
@@ -40,6 +41,11 @@ export async function PageBuilder({ path }: PageBuilderProps) {
       limit: 1,
     })
   );
+
+  if (pageItems.length === 0) {
+    return notFound();
+  }
+
   const pageItem = pageItems[0];
 
   return (
