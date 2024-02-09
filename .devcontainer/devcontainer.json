@@ -21,7 +21,8 @@
         "eamodio.gitlens",
         "esbenp.prettier-vscode",
         "ms-azuretools.vscode-docker",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss"
       ]
     }
   }
