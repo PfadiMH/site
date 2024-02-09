@@ -1,15 +1,15 @@
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { readItems } from "@directus/sdk";
 import directus from "@/lib/directus";
 import { PageBuilder } from "@/components/Page";
 
 interface Props {
   params: {
-    path: string[];
+    path?: string[];
   };
 }
 
-function getPath(pathArray: string[]) {
+function getPath(pathArray?: string[]) {
   return "/" + (pathArray !== undefined ? pathArray.join("/") : "");
 }
 
