@@ -3,6 +3,7 @@ import directus from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
+import { FooterBuilder } from "./Footer/Footer";
 import type Schema from "@/lib/directus-types";
 
 export type PageProps = Schema.Page & {
@@ -53,7 +54,7 @@ export async function PageBuilder({ path }: PageBuilderProps) {
       {...pageItem}
       navbarSlot={<NavbarBuilder />}
       sectionsSlot={<div>Sections</div>}
-      footerSlot={<div>Footer</div>}
+      footerSlot={<FooterBuilder />}
     />
   );
 }
