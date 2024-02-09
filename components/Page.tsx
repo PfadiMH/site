@@ -3,6 +3,7 @@ import { readItems } from "@directus/sdk";
 import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
 import type Schema from "@/lib/directus-types";
+import { PageSectionsBuilder } from "./Sections/SectionsBuilder";
 
 export type PageProps = Schema.Page & {
   navbarSlot: React.ReactNode;
@@ -46,7 +47,7 @@ export async function PageBuilder({ path }: PageBuilderProps) {
     <Page
       {...pageItem}
       navbarSlot={<NavbarBuilder />}
-      sectionsSlot={<div>Sections</div>}
+      sectionsSlot={<PageSectionsBuilder pageId={pageItem.id} />}
       footerSlot={<div>Footer</div>}
     />
   );
