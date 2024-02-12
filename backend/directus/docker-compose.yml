@@ -16,4 +16,4 @@ services:
       ADMIN_PASSWORD: "d1r3ctu5"
       DB_CLIENT: "pg"
       DB_CONNECTION_STRING: ${DATABASE_URL}
-      WEBSOCKETS_ENABLED: true
+      WEBSOCKETS_ENABLED: "true"
