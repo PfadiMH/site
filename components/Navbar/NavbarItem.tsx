@@ -1,9 +1,7 @@
-import directus from "@/lib/directus";
-import { readItem } from "@directus/sdk";
 import React from "react";
-import type Schema from "@/lib/directus-types";
+import prisma, { Prisma } from "@/lib/prisma";
 
-export type NavbarItemProps = Schema.NavbarItem;
+export type NavbarItemProps = Prisma.NavbarItemsGetPayload<{}>;
 
 export async function NavbarItem({ title, url }: NavbarItemProps) {
   return (
@@ -14,11 +12,17 @@ export async function NavbarItem({ title, url }: NavbarItemProps) {
 }
 
 export interface NavbarItemBuilderProps {
-  id: string;
+  id: number;
 }
 
 export async function NavbarItemBuilder({ id }: NavbarItemBuilderProps) {
-  const navbarItem = await directus.request(readItem("navbar_item", id));
+  const navbarItem = await prisma.navbarItems.findFirst({
+    where: {
+      id,
+    },
+  });
+
+  if (navbarItem === null) return null;
 
   return <NavbarItem {...navbarItem} />;
 }
