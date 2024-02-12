@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { readItems } from "@directus/sdk";
-import directus from "@/lib/directus";
+import prisma from "@/lib/prisma";
 import { PageBuilder } from "@/components/Page";
 
 interface Props {
@@ -18,23 +17,13 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const path = getPath(pathArray);
 
-  const pageItems = await directus.request(
-    readItems("page", {
-      fields: ["*"],
-      filter: {
-        path: {
-          _eq: path,
-        },
-      },
-      limit: 1,
-    })
-  );
+  const pageItem = await prisma.pages.findFirst({
+    where: {
+      path,
+    },
+  });
 
-  if (pageItems.length === 0) {
-    return {};
-  }
-
-  const pageItem = pageItems[0];
+  if (pageItem === null) return {};
 
   return {
     title: pageItem.title,

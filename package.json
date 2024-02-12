@@ -6,24 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "directus-snapshot": "directus schema snapshot backend/directus/snapshot.yml",
+    "directus-apply": "directus schema apply --yes backend/directus/snapshot.yml",
+    "gen-types": "prisma db pull && prisma-case-format -f backend/schema.prisma && prisma generate"
   },
   "dependencies": {
-    "@directus/sdk": "^14.0.0",
+    "@prisma/client": "5.9.1",
+    "directus": "^10.9.0",
     "next": "14.1.0",
+    "postgres": "^3.4.3",
     "react": "^18",
     "react-dom": "^18",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8",
+    "prisma": "^5.9.1",
+    "prisma-case-format": "^2.2.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  },
+  "prisma": {
+    "schema": "backend/schema.prisma"
   }
 }

@@ -1,10 +1,8 @@
-import directus from "@/lib/directus";
-import { readSingleton } from "@directus/sdk";
 import React from "react";
+import prisma, { Prisma } from "@/lib/prisma";
 import { NavbarComponentsBuilder } from "./NavbarComponents";
-import type Schema from "@/lib/directus-types";
 
-export type NavbarProps = Schema.Navbar & {
+export type NavbarProps = Prisma.NavbarGetPayload<{}> & {
   navbarCompontentsSlot: React.ReactNode;
 };
 
@@ -18,16 +16,11 @@ export function Navbar({ title, navbarCompontentsSlot }: NavbarProps) {
 }
 
 export async function NavbarBuilder() {
-  const navbarItem = await directus.request(
-    readSingleton("navbar", {
-      fields: ["*"],
-    })
-  );
+  const navbar = await prisma.navbar.findFirst();
+
+  if (navbar === null) return null;
 
   return (
-    <Navbar
-      {...navbarItem}
-      navbarCompontentsSlot={<NavbarComponentsBuilder />}
-    />
+    <Navbar {...navbar} navbarCompontentsSlot={<NavbarComponentsBuilder />} />
   );
 }

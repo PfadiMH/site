@@ -1,11 +1,9 @@
 import { notFound } from "next/navigation";
-import directus from "@/lib/directus";
-import { readItems } from "@directus/sdk";
+import prisma, { Prisma } from "@/lib/prisma";
 import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
-import type Schema from "@/lib/directus-types";
 
-export type PageProps = Schema.Page & {
+export type PageProps = Prisma.PagesGetPayload<{}> & {
   navbarSlot: React.ReactNode;
   sectionsSlot: React.ReactNode;
   footerSlot: React.ReactNode;
@@ -30,27 +28,17 @@ export interface PageBuilderProps {
 }
 
 export async function PageBuilder({ path }: PageBuilderProps) {
-  const pageItems = await directus.request(
-    readItems("page", {
-      fields: ["*"],
-      filter: {
-        path: {
-          _eq: path,
-        },
-      },
-      limit: 1,
-    })
-  );
+  const page = await prisma.pages.findFirst({
+    where: {
+      path,
+    },
+  });
 
-  if (pageItems.length === 0) {
-    return notFound();
-  }
-
-  const pageItem = pageItems[0];
+  if (page === null) return notFound();
 
   return (
     <Page
-      {...pageItem}
+      {...page}
       navbarSlot={<NavbarBuilder />}
       sectionsSlot={<div>Sections</div>}
       footerSlot={<div>Footer</div>}
