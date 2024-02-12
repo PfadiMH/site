@@ -2,23 +2,43 @@
 
 ## Development
 
-### Setup
-
 1. Install [Docker](https://www.docker.com/products/docker-desktop)
 2. Install [VSCode](https://code.visualstudio.com/)
 3. Install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
 4. Open the project in VSCode
 5. Click on the button in the bottom left corner and select "Reopen in Container"
 
-### Docs
+## Docs
 
-#### Directus CMS
+### DevContainer
 
-The Directus CMS starts automatically with the devcontainer.
+The devcontainer consists of the following services:
 
-When the schema is changed, you need to generate the typescript types for the frontend. To do this, open the "Generate Types" Module in the Directus Admin Panel and download the generated types. Then, copy the types to the `./lib/directus-types.d.ts` file. After that, edit the types to use the Directus User type instead of the generated one.
+- Development Container itself
+- PostgreSQL Database
+- Directus CMS
 
-#### Next.js Frontend
+### Changes to the Schema
+
+1. Create a snapshot of the new schema
+
+   ```bash
+   bun snapshot
+   ```
+
+2. Generate types for the new schema (you might have to reload the window after)
+
+   ```bash
+   bun gen-types
+   ```
+
+   This will
+
+   - Introspect the database and generate the file `backend/schema.prisma`
+   - Fix the naming of the Prisma schema using `prisma-case-format`
+   - Generate types for the Prisma client. The generated types are saved in `node_modules/.prisma/client/index.d.ts`
+
+### Next.js Frontend
 
 To start the frontend, run the following commands in the terminal:
 
