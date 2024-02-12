@@ -18,6 +18,8 @@ To load the schema, run the following command in the terminal:
 bun directus-apply
 ```
 
+Create a random new Collection to fix the No Permission error. You can delete it afterwards.
+
 ## Docs
 
 ### DevContainer
@@ -33,7 +35,7 @@ The devcontainer consists of the following services:
 1. Create a snapshot of the new schema
 
    ```bash
-   bun snapshot
+   bun directus-snapshot
    ```
 
 2. Generate types for the new schema (you might have to reload the window after)
