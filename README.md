@@ -8,6 +8,16 @@
 4. Open the project in VSCode
 5. Click on the button in the bottom left corner and select "Reopen in Container"
 
+### Directus Setup
+
+Once the devcontainer is running, you can access the Directus CMS at [http://localhost:8055](http://localhost:8055).
+
+To load the schema, run the following command in the terminal:
+
+```bash
+bun directus-apply
+```
+
 ## Docs
 
 ### DevContainer
