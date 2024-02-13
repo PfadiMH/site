@@ -15,5 +15,5 @@ services:
       ADMIN_EMAIL: "admin@example.com"
       ADMIN_PASSWORD: "d1r3ctu5"
       DB_CLIENT: "pg"
-      DB_CONNECTION_STRING: ${DATABASE_URL}
+      DB_CONNECTION_STRING: ${DB_CONNECTION_STRING}
       WEBSOCKETS_ENABLED: "true"
