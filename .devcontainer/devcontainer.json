@@ -22,7 +22,8 @@
         "esbenp.prettier-vscode",
         "ms-azuretools.vscode-docker",
         "bradlc.vscode-tailwindcss",
-        "csstools.postcss"
+        "csstools.postcss",
+        "Prisma.prisma"
       ]
     }
   }
