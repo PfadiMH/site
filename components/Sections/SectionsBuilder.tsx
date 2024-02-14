@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
-import { ImageTextColumnsBuilder } from "./ImageTextColumns";
-import { RichTextBuilder } from "./RichText";
+/* import { ImageTextColumnsBuilder } from "./ImageTextColumns";
+import { RichTextBuilder } from "./RichText"; */
+
 interface PageSectionsBuilder {
   pagesId: number;
 }
@@ -15,7 +16,7 @@ export async function PageSectionsBuilder({ pagesId }: PageSectionsBuilder) {
       sections={pageSectionsItems.map(({ collection, item, id }) => ({
         collection: String(collection),
         item: String(item),
-        id: id,
+        id,
       }))}
     />
   );
@@ -26,17 +27,9 @@ interface SectionsBuilderProps {
 }
 
 export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
-  return (
-    <div>
-      {sections.map((section, index) => {
-        switch (section.collection) {
-          /*      
-Example:
-     case "grid_cards":
-            return <GridCardsBuilder key={section.id} id={section.item} />; 
-            */
-
-          case "image_text_columns":
+  return sections.map((section) => {
+    switch (section.collection) {
+      /*           case "image_text_columns":
             return (
               <ImageTextColumnsBuilder
                 key={section.id}
@@ -47,16 +40,12 @@ Example:
           case "rich_text":
             return (
               <RichTextBuilder key={section.id} id={Number(section.item)} />
-            );
+            ); */
 
-          default:
-            return (
-              <div title={JSON.stringify(section, null, 2)}>
-                Unknown collection
-              </div>
-            );
-        }
-      })}
-    </div>
-  );
+      default:
+        return (
+          <div title={JSON.stringify(section, null, 2)}>Unknown collection</div>
+        );
+    }
+  });
 }
