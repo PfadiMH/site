@@ -8,7 +8,6 @@ export type PageProps = Prisma.PagesGetPayload<{}> & {
   navbarSlot: React.ReactNode;
   sectionsSlot: React.ReactNode;
   footerSlot: React.ReactNode;
-  heroTitle: React.ReactNode;
 };
 
 export async function Page({
@@ -20,19 +19,7 @@ export async function Page({
   return (
     <main className="min-h-screen p-24">
       <div>{navbarSlot}</div>
-      <Hero
-        heroTitle={heroTitle}
-        id={0}
-        status={""}
-        userCreated={null}
-        dateCreated={null}
-        userUpdated={null}
-        dateUpdated={null}
-        path={""}
-        title={""}
-        description={""}
-        heroBackground={null}
-      />
+      <Hero heroTitle={String(heroTitle)} />
       <div>{sectionsSlot}</div>
       <div>{footerSlot}</div>
     </main>

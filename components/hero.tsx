@@ -1,7 +1,9 @@
 import React from "react";
 import { Prisma } from "@prisma/client";
 
-export type HeroProps = Prisma.PagesGetPayload<{}>;
+export interface HeroProps {
+  heroTitle: string;
+}
 
 export function Hero({ heroTitle }: HeroProps) {
   return (
