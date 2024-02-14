@@ -1,5 +1,4 @@
 import React from "react";
-import { getFileInfo } from "@/lib/getAssetInfo";
 import { ImageTextColumnsImageBuilder } from "./ImageTextColumnsImage";
 import prisma, { Prisma } from "@/lib/prisma";
 
@@ -19,9 +18,9 @@ export async function ImageTextColumns({
   return (
     <div>
       {title && <h1>{title}</h1>}
-      {leftImage && leftImageComponent}
+      {leftImageComponent}
       {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
-      {rightImage && rightImageComponent}
+      {rightImageComponent}
     </div>
   );
 }
@@ -42,12 +41,10 @@ export async function ImageTextColumnsBuilder({
     <ImageTextColumns
       {...imageTextColumns}
       leftImageComponent={
-        <ImageTextColumnsImageBuilder id={String(imageTextColumns.leftImage)} />
+        <ImageTextColumnsImageBuilder id={imageTextColumns.leftImage} />
       }
       rightImageComponent={
-        <ImageTextColumnsImageBuilder
-          id={String(imageTextColumns.rightImage)}
-        />
+        <ImageTextColumnsImageBuilder id={imageTextColumns.rightImage} />
       }
     />
   );
