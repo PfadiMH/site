@@ -33,7 +33,7 @@ export async function ImageTextColumnsBuilder({
   id,
 }: ImageTextColumnsBuilderProps) {
   const imageTextColumns = await prisma.imageTextColumns.findFirst({
-    where: { id: id },
+    where: { id },
   });
   if (imageTextColumns === null) return null;
 

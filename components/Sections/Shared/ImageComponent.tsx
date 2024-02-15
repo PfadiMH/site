@@ -8,12 +8,5 @@ export interface ImageComponentsProps {
 }
 
 export function ImageComponent({ path, filenameDisk }: ImageComponentsProps) {
-  return (
-    <Image
-      src={String(path)}
-      alt={String(filenameDisk)}
-      width={100}
-      height={100}
-    />
-  );
+  return <Image src={path} alt={filenameDisk} width={100} height={100} />;
 }
