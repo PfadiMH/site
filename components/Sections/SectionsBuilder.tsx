@@ -7,7 +7,7 @@ interface PageSectionsBuilder {
 export async function PageSectionsBuilder({ pagesId }: PageSectionsBuilder) {
   const pageSectionsItems = await prisma.pagesSections.findMany({
     orderBy: { sort: "asc" },
-    where: { pagesId: pagesId },
+    where: { pagesId },
   });
   return (
     <SectionsBuilder
