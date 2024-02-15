@@ -41,3 +41,13 @@ next-env.d.ts
 
 # postgres data
 /backend/postgres/data
+backend/directus/uploads/89e24de6-5a54-4257-9048-171526dd90ed__641a888e5b2b754dabb97b20cb3fff990eeff041.jpeg
+backend/directus/uploads/89e24de6-5a54-4257-9048-171526dd90ed.jpg
+backend/directus/uploads/144f4b76-a4cc-4034-aa28-547476377cd5__641a888e5b2b754dabb97b20cb3fff990eeff041.jpeg
+backend/directus/uploads/144f4b76-a4cc-4034-aa28-547476377cd5.jpg
+backend/directus/uploads/3237b43a-02ee-40f4-95f7-ae761c6b633e__641a888e5b2b754dabb97b20cb3fff990eeff041.jpeg
+backend/directus/uploads/3237b43a-02ee-40f4-95f7-ae761c6b633e.jpg
+backend/directus/uploads/c7deb83e-44af-494f-aab0-89c0a7c58ff9__641a888e5b2b754dabb97b20cb3fff990eeff041.jpeg
+backend/directus/uploads/c7deb83e-44af-494f-aab0-89c0a7c58ff9.jpg
+backend/directus/uploads/fad5d8a6-369c-492c-9d19-643e1e4563e4__641a888e5b2b754dabb97b20cb3fff990eeff041.jpeg
+backend/directus/uploads/fad5d8a6-369c-492c-9d19-643e1e4563e4.jpg
