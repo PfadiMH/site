@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import prisma, { Prisma } from "@/lib/prisma";
 import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
-import { Hero } from "./hero";
+import { Hero } from "./Hero";
 
 export type PageProps = Prisma.PagesGetPayload<{}> & {
   navbarSlot: React.ReactNode;
@@ -15,11 +15,13 @@ export async function Page({
   sectionsSlot,
   footerSlot,
   heroTitle,
+  title,
+  heroBackground,
 }: PageProps) {
   return (
     <main className="min-h-screen p-24">
       <div>{navbarSlot}</div>
-      <Hero heroTitle={String(heroTitle)} />
+      <Hero heroTitle={heroTitle || title} heroBackground={heroBackground} />
       <div>{sectionsSlot}</div>
       <div>{footerSlot}</div>
     </main>
