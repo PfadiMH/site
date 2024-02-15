@@ -1,6 +1,6 @@
 import React from "react";
-import { ImageTextColumnsImageBuilder } from "./ImageTextColumnsImage";
 import prisma, { Prisma } from "@/lib/prisma";
+import { ImageTextColumnsImageBuilder } from "./ImageTextColumnsImage";
 
 export type ImageTextColumnsProps = Prisma.ImageTextColumnsGetPayload<{}> & {
   leftImageComponent: React.ReactNode;
