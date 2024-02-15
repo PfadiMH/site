@@ -3,6 +3,7 @@ import prisma, { Prisma } from "@/lib/prisma";
 import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
 import { Hero } from "./Hero";
+import { PageSectionsBuilder } from "./Sections/SectionsBuilder";
 
 export type PageProps = Prisma.PagesGetPayload<{}> & {
   navbarSlot: React.ReactNode;
@@ -45,7 +46,7 @@ export async function PageBuilder({ path }: PageBuilderProps) {
     <Page
       {...page}
       navbarSlot={<NavbarBuilder />}
-      sectionsSlot={<div>Sections</div>}
+      sectionsSlot={<PageSectionsBuilder pagesId={page.id} />}
       footerSlot={<div>Footer</div>}
     />
   );
