@@ -1644,7 +1644,7 @@ fields:
       display_options: null
       field: fk_card_grids
       group: null
-      hidden: false
+      hidden: true
       interface: input
       note: null
       options: null
@@ -1710,6 +1710,45 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: cards
+    field: background
+    type: uuid
+    meta:
+      collection: cards
+      conditions: null
+      display: null
+      display_options: null
+      field: background
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 10
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: background
+      table: cards
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: directus_users
     field: group
     type: integer
@@ -4690,7 +4729,8 @@ fields:
       hidden: false
       interface: list
       note: null
-      options: null
+      options:
+        fields: []
       readonly: false
       required: false
       sort: 7
@@ -6845,6 +6885,27 @@ relations:
       constraint_name: cards_fk_card_grids_foreign
       on_update: NO ACTION
       on_delete: CASCADE
+  - collection: cards
+    field: background
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: cards
+      many_field: background
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: cards
+      column: background
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: cards_background_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: directus_users
     field: group
     related_collection: groups
@@ -7644,6 +7705,7 @@ relations:
       many_field: item
       one_allowed_collections:
         - card_grids
+        - image_text_columns
         - location_grids
         - locations
         - news_lists
