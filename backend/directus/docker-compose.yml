@@ -6,7 +6,6 @@ services:
       - 8055:8055
     hostname: pfadimh-site-directus
     volumes:
-      - ./database:/directus/database
       - ./uploads:/directus/uploads
       - ./extensions:/directus/extensions
     environment:
