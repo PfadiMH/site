@@ -1,6 +1,6 @@
 import React from "react";
 import prisma from "@/lib/prisma";
-import { Card } from "./Card";
+import { CardBuilder } from "./Card";
 
 export interface CardGridProps {
   title: string | null;
@@ -37,7 +37,7 @@ export async function CardGridBuilder({ id }: CardGridBuilderProps) {
       title={cardGrid.title}
       description={cardGrid.description}
       CardSlot={cards.map((card) => (
-        <Card key={card.id} title={card.title} content={card.content} />
+        <CardBuilder {...card} />
       ))}
     />
   );

@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export interface ImageComponentsProps {
   path: string;
-  title: string;
+  altText: string;
 }
 
-export function ImageComponent({ path, title }: ImageComponentsProps) {
-  return <Image src={path} alt={title} width={100} height={100} />;
+export function ImageComponent({ path, altText }: ImageComponentsProps) {
+  return <Image src={path} alt={altText} width={100} height={100} />;
 }

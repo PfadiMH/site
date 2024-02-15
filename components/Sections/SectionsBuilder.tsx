@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
+import { CardGridBuilder } from "../CardsGrid/CardGrid";
 
 interface PageSectionsBuilder {
   pagesId: number;
@@ -32,6 +33,8 @@ export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
         return (
           <ImageTextColumnsBuilder key={section.id} id={Number(section.item)} />
         );
+      case "card_grids":
+        return <CardGridBuilder key={section.id} id={Number(section.item)} />;
 
       default:
         return (

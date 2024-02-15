@@ -12,7 +12,7 @@ export async function ImageTextColumnsImageBuilder({
   return (
     <ImageComponent
       path={imageInfo.path}
-      title={imageInfo.title || imageInfo.filenameDisk || "image"}
+      altText={imageInfo.title || imageInfo.filenameDisk || "image"}
     />
   );
 }
