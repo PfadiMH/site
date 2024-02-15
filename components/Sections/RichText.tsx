@@ -12,7 +12,7 @@ interface RichTextBuilderProps {
 }
 
 export async function RichTextBuilder({ id }: RichTextBuilderProps) {
-  const richText = await prisma.richText.findFirst({ where: { id: id } });
+  const richText = await prisma.richText.findFirst({ where: { id } });
   if (richText === null) return null;
   return <RichText {...richText} />;
 }
