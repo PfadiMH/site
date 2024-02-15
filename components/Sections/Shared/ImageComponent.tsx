@@ -1,12 +1,10 @@
-import { Prisma } from "@prisma/client";
-import { Inter } from "next/font/google";
 import Image from "next/image";
 
 export interface ImageComponentsProps {
   path: string;
-  filenameDisk: string;
+  title: string;
 }
 
-export function ImageComponent({ path, filenameDisk }: ImageComponentsProps) {
-  return <Image src={path} alt={filenameDisk} width={100} height={100} />;
+export function ImageComponent({ path, title }: ImageComponentsProps) {
+  return <Image src={path} alt={title} width={100} height={100} />;
 }
