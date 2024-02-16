@@ -4,11 +4,13 @@ import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
 import { Hero } from "./Hero";
 import { PageSectionsBuilder } from "./Sections/SectionsBuilder";
+import { HeroImageBuilder } from "./HeroImage";
 
 export type PageProps = Prisma.PagesGetPayload<{}> & {
   navbarSlot: React.ReactNode;
   sectionsSlot: React.ReactNode;
   footerSlot: React.ReactNode;
+  heroBackgroundSlot: React.ReactNode;
 };
 
 export async function Page({
@@ -17,12 +19,15 @@ export async function Page({
   footerSlot,
   heroTitle,
   title,
-  heroBackground,
+  heroBackgroundSlot,
 }: PageProps) {
   return (
     <main className="min-h-screen p-24">
       <div>{navbarSlot}</div>
-      <Hero heroTitle={heroTitle || title} heroBackground={heroBackground} />
+      <Hero
+        heroTitle={heroTitle || title}
+        backgroundSlot={heroBackgroundSlot}
+      />
       <div>{sectionsSlot}</div>
       <div>{footerSlot}</div>
     </main>
@@ -45,6 +50,7 @@ export async function PageBuilder({ path }: PageBuilderProps) {
   return (
     <Page
       {...page}
+      heroBackgroundSlot={<HeroImageBuilder id={String(page.heroBackground)} />}
       navbarSlot={<NavbarBuilder />}
       sectionsSlot={<PageSectionsBuilder pagesId={page.id} />}
       footerSlot={<div>Footer</div>}

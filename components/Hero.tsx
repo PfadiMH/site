@@ -2,13 +2,14 @@ import React from "react";
 
 export interface HeroProps {
   heroTitle: string;
-  heroBackground: string | null;
+  backgroundSlot: React.ReactNode;
 }
 
-export function Hero({ heroTitle, heroBackground }: HeroProps) {
+export function Hero({ heroTitle, backgroundSlot }: HeroProps) {
   return (
     <div>
-      <h1>{heroTitle}</h1>
+      {<h1>{heroTitle}</h1>}
+      {backgroundSlot}
     </div>
   );
 }
