@@ -1,10 +1,12 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
+import { WYSIWYG } from "@/components/Shared/WYSYWYGComponent";
+import style from "./RichText.module.css";
 
 export type RichTextProps = Prisma.RichTextGetPayload<{}>;
 
 export function RichText({ content }: RichTextProps) {
-  return <div dangerouslySetInnerHTML={{ __html: content }} />;
+  return <WYSIWYG style={style} content={content} />;
 }
 
 interface RichTextBuilderProps {
