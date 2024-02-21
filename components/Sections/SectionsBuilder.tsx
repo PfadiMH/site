@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
-import { RichText, RichTextBuilder } from "./RichText/RichText";
+import { RichTextBuilder } from "./RichText/RichText";
 
 interface PageSectionsBuilder {
   pagesId: number;

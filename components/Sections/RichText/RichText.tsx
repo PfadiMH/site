@@ -1,6 +1,6 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
-import { WYSIWYG } from "@/components/Shared/WYSYWYGComponent";
+import { WYSIWYG } from "@/components/Shared/WYSIWYGComponent";
 import style from "./RichText.module.css";
 
 export type RichTextProps = Prisma.RichTextGetPayload<{}>;
@@ -9,7 +9,7 @@ export function RichText({ content }: RichTextProps) {
   return <WYSIWYG style={style} content={content} />;
 }
 
-interface RichTextBuilderProps {
+export interface RichTextBuilderProps {
   id: number;
 }
 
