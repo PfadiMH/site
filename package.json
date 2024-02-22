@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "directus-snapshot": "directus schema snapshot backend/directus/snapshot.yml",
+    "directus-snapshot": "directus schema snapshot backend/directus/snapshot.yml -y",
     "directus-apply": "directus schema apply --yes backend/directus/snapshot.yml",
     "gen-types": "prisma db pull && prisma-case-format -f backend/schema.prisma && prisma generate"
   },
