@@ -1,4 +1,5 @@
 # PfadiMH Website
+[Docs](https://wiki-pmh.battino.ch/Structure)
 
 ## Development
 
