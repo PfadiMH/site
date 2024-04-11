@@ -16,12 +16,12 @@ export async function NavbarComponentsBuilder() {
     let itemIdInt = Number(navbarComponent.item);
 
     switch (navbarComponent.collection) {
-      case "navbar_item":
+      case "navbar_items":
         return (
           <NavbarItemBuilder id={itemIdInt} key={String(navbarComponent.id)} />
         );
 
-      case "navbar_dropdown":
+      case "navbar_dropdowns":
         return (
           <NavbarDropdownBuilder id={itemIdInt} key={navbarComponent.id} />
         );

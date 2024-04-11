@@ -41,3 +41,4 @@ next-env.d.ts
 
 # postgres data
 /backend/postgres/data
+backend/directus/uploads
