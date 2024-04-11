@@ -1,32 +1,26 @@
-import directus from "@/lib/directus";
-import { readItem } from "@directus/sdk";
 import React from "react";
-import type Schema from "@/lib/directus-types";
+import prisma, { Prisma } from "@/lib/prisma";
 
-export type NavbarDropdownProps = Schema.NavbarDropdown;
+export type NavbarDropdownProps = Prisma.NavbarDropdownsGetPayload<{}>;
 
-export async function NavbarDropdown({
-  title,
-  dropdown_items,
-}: NavbarDropdownProps) {
-  return (
-    <div>
-      {title}
-      <pre>{JSON.stringify(dropdown_items, null, 2)}</pre>
-    </div>
-  );
+export async function NavbarDropdown({ title, items }: NavbarDropdownProps) {
+  return <div title={JSON.stringify(items, null, 2)}>{title}</div>;
 }
 
 export interface NavbarDropdownBuilderProps {
-  id: string;
+  id: number;
 }
 
 export async function NavbarDropdownBuilder({
   id,
 }: NavbarDropdownBuilderProps) {
-  const navbarDropdown = await directus.request(
-    readItem("navbar_dropdown", id)
-  );
+  const navbarDropdown = await prisma.navbarDropdowns.findFirst({
+    where: {
+      id,
+    },
+  });
+
+  if (navbarDropdown === null) return null;
 
   return <NavbarDropdown {...navbarDropdown} />;
 }

@@ -1,0 +1,19 @@
+version: "3"
+services:
+  directus:
+    image: directus/directus:10.9.0
+    ports:
+      - 8055:8055
+    hostname: pfadimh-site-directus
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      KEY: "replace-with-random-value"
+      SECRET: "replace-with-random-value"
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
+      DB_CLIENT: "pg"
+      DB_CONNECTION_STRING: ${DB_CONNECTION_STRING}
+      WEBSOCKETS_ENABLED: "true"

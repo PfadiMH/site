@@ -37,4 +37,7 @@ next-env.d.ts
 
 # environments
 .env*
-!.env.example
+!.env*.example
+
+# postgres data
+/backend/postgres/data

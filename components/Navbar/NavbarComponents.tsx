@@ -1,37 +1,34 @@
-import directus from "@/lib/directus";
-import { readItems } from "@directus/sdk";
 import React from "react";
+import prisma from "@/lib/prisma";
 import { NavbarItemBuilder } from "./NavbarItem";
 import { NavbarDropdownBuilder } from "./NavbarDropdown";
 
 export async function NavbarComponentsBuilder() {
-  const navbarItemItems = await directus.request(
-    readItems("navbar_navbar_components", {
-      fields: ["*"],
-      sort: "sort",
-    })
-  );
+  const navbarComponents = await prisma.navbarComponents.findMany({
+    orderBy: {
+      sort: "asc",
+    },
+  });
 
-  return navbarItemItems.map((navbarItemItem) => {
-    switch (navbarItemItem.collection) {
+  return navbarComponents.map((navbarComponent) => {
+    if (navbarComponent.item === null) return null;
+
+    let itemIdInt = Number(navbarComponent.item);
+
+    switch (navbarComponent.collection) {
       case "navbar_item":
         return (
-          <NavbarItemBuilder
-            id={String(navbarItemItem.item)}
-            key={String(navbarItemItem.id)}
-          />
+          <NavbarItemBuilder id={itemIdInt} key={String(navbarComponent.id)} />
         );
 
       case "navbar_dropdown":
         return (
-          <NavbarDropdownBuilder
-            id={String(navbarItemItem.item)}
-            key={String(navbarItemItem.id)}
-          />
+          <NavbarDropdownBuilder id={itemIdInt} key={navbarComponent.id} />
         );
+
       default:
         return (
-          <div title={JSON.stringify(navbarItemItem, null, 2)}>
+          <div title={JSON.stringify(navbarComponent, null, 2)}>
             Unknown collection
           </div>
         );

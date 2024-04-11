@@ -12,6 +12,12 @@ services:
 
   directus:
     extends:
-      file: directus/docker-compose.yml
+      file: backend/directus/docker-compose.yml
       service: directus
-    hostname: pfadimh-site-directus
+    depends_on:
+      - postgres
+
+  postgres:
+    extends:
+      file: backend/postgres/docker-compose.yml
+      service: postgres
