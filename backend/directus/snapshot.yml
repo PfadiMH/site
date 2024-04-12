@@ -2696,45 +2696,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: groups
-    field: path_name
-    type: string
-    meta:
-      collection: groups
-      conditions: null
-      display: null
-      display_options: null
-      field: path_name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        slug: true
-      readonly: false
-      required: true
-      sort: 9
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: path_name
-      table: groups
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: true
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: groups
     field: hero_title
     type: text
     meta:
@@ -2750,7 +2711,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 10
+      sort: 11
       special: null
       translations: null
       validation: null
@@ -2788,7 +2749,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 11
+      sort: 12
       special:
         - file
       translations: null
@@ -2827,13 +2788,54 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 12
+      sort: 13
       special:
         - m2a
       translations: null
       validation: null
       validation_message: null
       width: full
+  - collection: groups
+    field: path
+    type: string
+    meta:
+      collection: groups
+      conditions: null
+      display: null
+      display_options: null
+      field: path
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 9
+      special: null
+      translations: null
+      validation:
+        _and:
+          - path:
+              _ncontains: /
+      validation_message: null
+      width: full
+    schema:
+      name: path
+      table: groups
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: groups_sections
     field: id
     type: integer
@@ -2978,6 +2980,44 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: groups_sections
+    field: sort
+    type: integer
+    meta:
+      collection: groups_sections
+      conditions: null
+      display: null
+      display_options: null
+      field: sort
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: sort
+      table: groups_sections
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
       is_nullable: true
       is_unique: false
       is_primary_key: false
@@ -6028,12 +6068,9 @@ fields:
       validation:
         _and:
           - path:
-              _starts_with: /
-          - _or:
-              - path:
-                  _nends_with: /
-              - path:
-                  _eq: /
+              _nstarts_with: /
+          - path:
+              _nends_with: /
       validation_message: null
       width: full
     schema:
@@ -6045,7 +6082,7 @@ fields:
       numeric_precision: null
       numeric_scale: null
       is_nullable: false
-      is_unique: false
+      is_unique: true
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7065,7 +7102,7 @@ relations:
       one_collection_field: null
       one_deselect_action: nullify
       one_field: sections
-      sort_field: null
+      sort_field: sort
     schema:
       table: groups_sections
       column: groups_id
