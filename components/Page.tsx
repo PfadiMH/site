@@ -25,13 +25,13 @@ export async function Page({
 }
 
 export interface PageBuilderProps {
-  path: string;
+  id: number;
 }
 
-export async function PageBuilder({ path }: PageBuilderProps) {
+export async function PageBuilder({ id }: PageBuilderProps) {
   const page = await prisma.pages.findFirst({
     where: {
-      path,
+      id,
     },
   });
 
