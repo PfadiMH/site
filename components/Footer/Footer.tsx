@@ -13,7 +13,6 @@ export async function Footer({
 }: FooterProps) {
   return (
     <footer>
-      <div>Footer</div>
       <div className="grid grid-cols-2 gap-4">{footerColumnsSlot}</div>
       {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
     </footer>
