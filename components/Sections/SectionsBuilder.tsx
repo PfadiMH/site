@@ -22,6 +22,28 @@ export async function PageSectionsBuilder({ pagesId }: PageSectionsBuilder) {
   );
 }
 
+interface GroupsSectionsBuilder {
+  groupsId: number;
+}
+
+export async function GroupsSectionsBuilder({
+  groupsId,
+}: GroupsSectionsBuilder) {
+  const pageSectionsItems = await prisma.groupsSections.findMany({
+    orderBy: { sort: "asc" },
+    where: { groupsId },
+  });
+  return (
+    <SectionsBuilder
+      sections={pageSectionsItems.map(({ collection, item, id }) => ({
+        collection: String(collection),
+        item: String(item),
+        id,
+      }))}
+    />
+  );
+}
+
 interface SectionsBuilderProps {
   sections: { collection: string; item: string; id: number }[];
 }
