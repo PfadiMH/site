@@ -1,14 +1,16 @@
 import React from "react";
-import { readSingleton } from "@directus/sdk";
-import directus from "@/lib/directus";
-import { FooterColumnBuilder } from "./FooterColumn";
-import type Schema from "@/lib/directus-types";
+import { FooterColumnsBuilder } from "./FooterColumn";
+import prisma, { Prisma } from "@/lib/prisma";
 
-export type FooterProps = Schema.Footer & {
+export type FooterProps = Prisma.FooterGetPayload<{}> & {
   footerColumnsSlot: React.ReactNode;
 };
 
-export async function Footer({ content, footerColumnsSlot }: FooterProps) {
+export async function Footer({
+  logo,
+  content,
+  footerColumnsSlot,
+}: FooterProps) {
   return (
     <footer>
       <div>Footer</div>
@@ -19,18 +21,14 @@ export async function Footer({ content, footerColumnsSlot }: FooterProps) {
 }
 
 export async function FooterBuilder() {
-  const footerItem = await directus.request(
-    readSingleton("footer", {
-      fields: ["*"],
-    })
-  );
-
+  let footer = await prisma.footer.findFirst();
+  if (footer === null) return null;
   return (
     <Footer
-      {...footerItem}
-      footerColumnsSlot={footerItem.columns.map((columnId) => (
-        <FooterColumnBuilder key={columnId} id={columnId} />
-      ))}
+      {...footer}
+      footerColumnsSlot={
+        <FooterColumnsBuilder id={footer.id} key={footer.id} />
+      }
     />
   );
 }

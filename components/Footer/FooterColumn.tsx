@@ -1,8 +1,8 @@
-import { readItem } from "@directus/sdk";
-import directus from "@/lib/directus";
+import prisma, { Prisma } from "@/lib/prisma";
+import { WYSIWYG } from "../Shared/WYSIWYGComponent";
 import type Schema from "@/lib/directus-types";
 
-type FooterColumnProps = Schema.FooterColumn;
+type FooterColumnProps = Prisma.FooterColumnsGetPayload<{}>;
 
 export async function FooterColumn({ title, content }: FooterColumnProps) {
   return (
@@ -17,13 +17,12 @@ interface FooterColumnBuilderProps {
   id: number;
 }
 
-export async function FooterColumnBuilder({ id }: FooterColumnBuilderProps) {
-  const footerColumnItem = await directus.request(
-    readItem("footer_column", id, {
-      fields: ["*"],
-      sort: "sort",
-    })
-  );
+export async function FooterColumnsBuilder({ id }: FooterColumnBuilderProps) {
+  const footerColumns = await prisma.footerColumns.findMany({
+    where: { fkFooter: id },
+  });
 
-  return <FooterColumn {...footerColumnItem} />;
+  return footerColumns.map((footerColumn) => (
+    <FooterColumn {...footerColumn} />
+  ));
 }
