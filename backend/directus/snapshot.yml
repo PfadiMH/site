@@ -109,7 +109,7 @@ collections:
       color: null
       display_template: null
       group: footer
-      hidden: false
+      hidden: true
       icon: null
       item_duplication_fields: null
       note: null
@@ -1997,6 +1997,7 @@ fields:
       note: null
       options:
         enableSelect: false
+        template: '{{title}}'
       readonly: false
       required: false
       sort: 6
@@ -2328,7 +2329,7 @@ fields:
       display_options: null
       field: fk_footer
       group: null
-      hidden: false
+      hidden: true
       interface: input
       note: null
       options: null
