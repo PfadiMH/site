@@ -1,15 +1,15 @@
 import prisma, { Prisma } from "@/lib/prisma";
 import { WYSIWYG } from "../Shared/WYSIWYGComponent";
-import type Schema from "@/lib/directus-types";
+import style from "./FooterColumn.module.css";
 
 type FooterColumnProps = Prisma.FooterColumnsGetPayload<{}>;
 
 export async function FooterColumn({ title, content }: FooterColumnProps) {
   return (
-    <footer>
+    <div>
       <h2>{title}</h2>
-      {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
-    </footer>
+      {content && <WYSIWYG content={content} style={style} />}
+    </div>
   );
 }
 
