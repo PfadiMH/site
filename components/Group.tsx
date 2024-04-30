@@ -13,7 +13,7 @@ export type PageProps = Prisma.GroupsGetPayload<{}> & {
   footerSlot: React.ReactNode;
 };
 
-export async function Groups({
+export async function Group({
   navbarSlot,
   sectionsSlot,
   footerSlot,
@@ -31,7 +31,7 @@ export interface PageBuilderProps {
   id: number;
 }
 
-export async function GroupsBuilder({ id }: PageBuilderProps) {
+export async function GroupBuilder({ id }: PageBuilderProps) {
   const groups = await prisma.groups.findFirst({
     where: {
       id,
@@ -41,7 +41,7 @@ export async function GroupsBuilder({ id }: PageBuilderProps) {
   if (groups === null) return notFound();
 
   return (
-    <Groups
+    <Group
       {...groups}
       navbarSlot={<NavbarBuilder />}
       sectionsSlot={<GroupsSectionsBuilder groupsId={groups.id} />}

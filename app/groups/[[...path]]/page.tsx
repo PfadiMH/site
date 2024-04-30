@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import prisma from "@/lib/prisma";
 import { PageBuilder } from "@/components/Page";
 import { isPagesAPIRouteMatch } from "next/dist/server/future/route-matches/pages-api-route-match";
-import { GroupsBuilder } from "@/components/groups";
+import { GroupBuilder } from "@/components/Group";
 
 interface Props {
   params: {
@@ -48,5 +48,5 @@ export async function generateMetadata({
 export default async function NextPage({ params: { path: pathArray } }: Props) {
   const groupsId = await getId(pathArray);
   if (groupsId === null) return null;
-  return <GroupsBuilder id={groupsId} />;
+  return <GroupBuilder id={groupsId} />;
 }
