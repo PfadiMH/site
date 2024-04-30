@@ -2,10 +2,7 @@ import { notFound } from "next/navigation";
 import prisma, { Prisma } from "@/lib/prisma";
 import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
-import {
-  GroupsSectionsBuilder,
-  PageSectionsBuilder,
-} from "./Sections/SectionsBuilder";
+import { GroupSectionsBuilder } from "./Sections/SectionsBuilder";
 
 export type PageProps = Prisma.GroupsGetPayload<{}> & {
   navbarSlot: React.ReactNode;
@@ -44,7 +41,7 @@ export async function GroupBuilder({ id }: PageBuilderProps) {
     <Group
       {...groups}
       navbarSlot={<NavbarBuilder />}
-      sectionsSlot={<GroupsSectionsBuilder groupsId={groups.id} />}
+      sectionsSlot={<GroupSectionsBuilder groupsId={groups.id} />}
       footerSlot={<div>Footer</div>}
     />
   );

@@ -2,11 +2,13 @@ import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
 import { RichTextBuilder } from "./RichText/RichText";
 
-interface PageSectionsBuilder {
+interface PageSectionsBuilderProps {
   pagesId: number;
 }
 
-export async function PageSectionsBuilder({ pagesId }: PageSectionsBuilder) {
+export async function PageSectionsBuilder({
+  pagesId,
+}: PageSectionsBuilderProps) {
   const pageSectionsItems = await prisma.pagesSections.findMany({
     orderBy: { sort: "asc" },
     where: { pagesId },
@@ -22,13 +24,13 @@ export async function PageSectionsBuilder({ pagesId }: PageSectionsBuilder) {
   );
 }
 
-interface GroupsSectionsBuilder {
+interface GroupSectionsBuilderProps {
   groupsId: number;
 }
 
-export async function GroupsSectionsBuilder({
+export async function GroupSectionsBuilder({
   groupsId,
-}: GroupsSectionsBuilder) {
+}: GroupSectionsBuilderProps) {
   const pageSectionsItems = await prisma.groupsSections.findMany({
     orderBy: { sort: "asc" },
     where: { groupsId },
