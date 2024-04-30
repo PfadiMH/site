@@ -4,6 +4,8 @@ import prisma, { Prisma } from "@/lib/prisma";
 import Image from "next/image";
 import { ImageComponent } from "../Shared/ImageComponent";
 import { getAssetPath } from "@/lib/getAssetInfo";
+import { WYSIWYG } from "../Shared/WYSIWYGComponent";
+import style from "./Footer.module.css";
 
 export type FooterProps = Prisma.FooterGetPayload<{}> & {
   footerColumnsSlot: React.ReactNode;
@@ -18,7 +20,7 @@ export async function Footer({
     <footer>
       <div className="grid grid-cols-2 gap-4">{footerColumnsSlot}</div>
       {logo && <ImageComponent path={await getAssetPath(logo)} title="Logo" />}
-      {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
+      {content && <WYSIWYG style={style} content={content} />}
     </footer>
   );
 }
