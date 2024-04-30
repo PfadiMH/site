@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
 import { RichTextBuilder } from "./RichText/RichText";
-import { ActivitiesBuilder } from "./Activities/Activities";
+import { ActivityBuilder } from "./Activity/Activity";
 
 interface PageSectionsBuilder {
   pagesId: number;
@@ -38,7 +38,7 @@ export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
       case "rich_text":
         return <RichTextBuilder key={section.id} id={Number(section.item)} />;
       case "activities":
-        return <ActivitiesBuilder key={section.id} id={Number(section.item)} />;
+        return <ActivityBuilder key={section.id} id={Number(section.item)} />;
 
       default:
         return (

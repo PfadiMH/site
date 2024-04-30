@@ -3,16 +3,16 @@ import prisma, { Prisma } from "@/lib/prisma";
 import { WYSIWYG } from "@/components/Shared/WYSIWYGComponent";
 import style from "./Activities.module.css";
 
-export type ActivitiesProps = Prisma.ActivitiesGetPayload<{}> & {};
+export type ActivityProps = Prisma.ActivitiesGetPayload<{}> & {};
 
-export async function Activities({
+export async function Activity({
   title,
   startTime,
   startLocation,
   endLocation,
   endTime,
   description,
-}: ActivitiesProps) {
+}: ActivityProps) {
   return (
     <div>
       {title && <h1>{title}</h1>}
@@ -25,15 +25,15 @@ export async function Activities({
   );
 }
 
-type ActivitiesBuilderProps = {
+type ActivityBuilderProps = {
   id: number;
 };
 
-export async function ActivitiesBuilder({ id }: ActivitiesBuilderProps) {
+export async function ActivityBuilder({ id }: ActivityBuilderProps) {
   const activities = await prisma.activities.findFirst({
     where: { id },
   });
   if (activities === null) return null;
 
-  return <Activities {...activities} />;
+  return <Activity {...activities} />;
 }
