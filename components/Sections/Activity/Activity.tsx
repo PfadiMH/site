@@ -1,7 +1,7 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
 import { WYSIWYG } from "@/components/Shared/WYSIWYGComponent";
-import style from "./Activities.module.css";
+import style from "./Activity.module.css";
 
 export type ActivityProps = Prisma.ActivitiesGetPayload<{}> & {};
 
