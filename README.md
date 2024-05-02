@@ -1,12 +1,15 @@
 # PfadiMH Website
 
+[Docs](https://wiki-pmh.battino.ch/Structure)
+
 ## Development
 
 1. Install [Docker](https://www.docker.com/products/docker-desktop)
 2. Install [VSCode](https://code.visualstudio.com/)
 3. Install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
 4. Open the project in VSCode
-5. Click on the button in the bottom left corner and select "Reopen in Container"
+5. Copy the .env.example to .env
+6. Click on the button in the bottom left corner and select "Reopen in Container"
 
 ### Directus Setup
 
@@ -18,7 +21,27 @@ To load the schema, run the following command in the terminal:
 bun directus-apply
 ```
 
+Login with the default credentials `admin@example.com` and `d1r3ctu5`.
+
 Create a random new Collection to fix the No Permission error. You can delete it afterwards.
+
+### Frontend Setup
+
+1. In the Directus, create a new directus token under Users -> Admin User -> Token
+2. Copy the token and add it to the .env file as `DIRECTUS_TOKEN`
+3. Install the dependencies
+
+```bash
+bun install
+```
+
+To start the frontend, run the following commands in the terminal:
+
+```bash
+bun dev --turbo
+```
+
+The frontend is now accessible at [http://localhost:3000](http://localhost:3000).
 
 ## Docs
 
