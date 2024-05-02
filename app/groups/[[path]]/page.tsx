@@ -6,19 +6,14 @@ import { GroupBuilder } from "@/components/Group";
 
 interface Props {
   params: {
-    path?: string[];
+    path?: string;
   };
 }
 
-function getPath(pathArray?: string[]) {
-  return pathArray !== undefined ? pathArray.join("/") : "";
-}
-
-async function getId(pathArray?: string[]) {
-  const path = getPath(pathArray);
+async function getId(pathName?: string) {
   const groupsItem = await prisma.groups.findFirst({
     where: {
-      path,
+      pathName,
     },
   });
 
@@ -28,10 +23,8 @@ async function getId(pathArray?: string[]) {
 }
 
 export async function generateMetadata({
-  params: { path: pathArray },
+  params: { path },
 }: Props): Promise<Metadata> {
-  const path = getPath(pathArray);
-
   const groupsItem = await prisma.groups.findFirst({
     where: {
       path,
@@ -45,8 +38,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function NextPage({ params: { path: pathArray } }: Props) {
-  const groupsId = await getId(pathArray);
+export default async function NextPage({ params: { path: pathName } }: Props) {
+  const groupsId = await getId(pathName);
   if (groupsId === null) return null;
   return <GroupBuilder id={groupsId} />;
 }

@@ -3,11 +3,11 @@ import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
 import { RichTextBuilder } from "./RichText/RichText";
 
 interface PageSectionsBuilderProps {
-  pagesId: number;
+  pageId: number;
 }
 
 export async function PageSectionsBuilder({
-  pagesId,
+  pageId: pagesId,
 }: PageSectionsBuilderProps) {
   const pageSectionsItems = await prisma.pagesSections.findMany({
     orderBy: { sort: "asc" },
@@ -25,11 +25,11 @@ export async function PageSectionsBuilder({
 }
 
 interface GroupSectionsBuilderProps {
-  groupsId: number;
+  groupId: number;
 }
 
 export async function GroupSectionsBuilder({
-  groupsId,
+  groupId: groupsId,
 }: GroupSectionsBuilderProps) {
   const pageSectionsItems = await prisma.groupsSections.findMany({
     orderBy: { sort: "asc" },

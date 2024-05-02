@@ -607,7 +607,7 @@ model Groups {
   title                                         String
   heroTitle                                     String?          @map("hero_title")
   heroBackground                                String?          @map("hero_background") @db.Uuid
-  path                                          String           @unique(map: "groups_path_unique") @db.VarChar(255)
+  pathName                                      String           @unique(map: "groups_path_name_unique") @map("path_name") @db.VarChar(255)
   directusUsersDirectusUsersGroupTogroups       DirectusUsers[]  @relation("directus_users_groupTogroups")
   directusFiles                                 DirectusFiles?   @relation(fields: [heroBackground], references: [id], onUpdate: NoAction, map: "groups_hero_background_foreign")
   directusUsersGroupsUserCreatedTodirectusUsers DirectusUsers?   @relation("groups_user_createdTodirectus_users", fields: [userCreated], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "groups_user_created_foreign")
@@ -788,7 +788,7 @@ model Pages {
   dateCreated                                  DateTime?       @map("date_created") @db.Timestamptz(6)
   userUpdated                                  String?         @map("user_updated") @db.Uuid
   dateUpdated                                  DateTime?       @map("date_updated") @db.Timestamptz(6)
-  path                                         String?         @unique(map: "pages_path_unique") @db.VarChar(255)
+  path                                         String          @unique(map: "pages_path_unique") @db.VarChar(255)
   title                                        String
   description                                  String
   heroTitle                                    String?         @map("hero_title")

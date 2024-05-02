@@ -24,24 +24,24 @@ export async function Group({
   );
 }
 
-export interface PageBuilderProps {
+export interface GroupBuilderProps {
   id: number;
 }
 
-export async function GroupBuilder({ id }: PageBuilderProps) {
-  const groups = await prisma.groups.findFirst({
+export async function GroupBuilder({ id }: GroupBuilderProps) {
+  const group = await prisma.groups.findFirst({
     where: {
       id,
     },
   });
 
-  if (groups === null) return notFound();
+  if (group === null) return null;
 
   return (
     <Group
-      {...groups}
+      {...group}
       navbarSlot={<NavbarBuilder />}
-      sectionsSlot={<GroupSectionsBuilder groupsId={groups.id} />}
+      sectionsSlot={<GroupSectionsBuilder groupId={group.id} />}
       footerSlot={<div>Footer</div>}
     />
   );

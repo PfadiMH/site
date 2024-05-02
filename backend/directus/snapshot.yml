@@ -2796,14 +2796,14 @@ fields:
       validation_message: null
       width: full
   - collection: groups
-    field: path
+    field: path_name
     type: string
     meta:
       collection: groups
       conditions: null
       display: null
       display_options: null
-      field: path
+      field: path_name
       group: null
       hidden: false
       interface: input
@@ -2816,12 +2816,12 @@ fields:
       translations: null
       validation:
         _and:
-          - path:
+          - path_name:
               _ncontains: /
       validation_message: null
       width: full
     schema:
-      name: path
+      name: path_name
       table: groups
       data_type: character varying
       default_value: null

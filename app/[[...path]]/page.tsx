@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import prisma from "@/lib/prisma";
 import { PageBuilder } from "@/components/Page";
-import { isPagesAPIRouteMatch } from "next/dist/server/future/route-matches/pages-api-route-match";
-
+import { notFound } from "next/navigation";
 interface Props {
   params: {
     path?: string[];
@@ -47,6 +46,6 @@ export async function generateMetadata({
 
 export default async function NextPage({ params: { path: pathArray } }: Props) {
   const pageId = await getId(pathArray);
-  if (pageId === null) return null;
+  if (pageId === null) return notFound();
   return <PageBuilder id={pageId} />;
 }
