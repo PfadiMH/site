@@ -18,7 +18,7 @@ export async function Footer({
 }: FooterProps) {
   return (
     <footer>
-      <div className="grid grid-cols-2 gap-4">{footerColumnsSlot}</div>
+      <div>{footerColumnsSlot}</div>
       {logo && <ImageComponent path={await getAssetPath(logo)} title="Logo" />}
       {content && <WYSIWYG style={style} content={content} />}
     </footer>
