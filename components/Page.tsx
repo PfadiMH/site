@@ -5,44 +5,31 @@ import { NavbarBuilder } from "./Navbar/Navbar";
 import { PageSectionsBuilder } from "./Sections/SectionsBuilder";
 
 export type PageProps = Prisma.PagesGetPayload<{}> & {
-  navbarSlot: React.ReactNode;
   sectionsSlot: React.ReactNode;
-  footerSlot: React.ReactNode;
 };
 
-export async function Page({
-  navbarSlot,
-  sectionsSlot,
-  footerSlot,
-}: PageProps) {
+export async function Page({ sectionsSlot }: PageProps) {
   return (
-    <main className="min-h-screen p-24">
-      <div>{navbarSlot}</div>
+    <main>
       <div>{sectionsSlot}</div>
-      <div>{footerSlot}</div>
     </main>
   );
 }
 
 export interface PageBuilderProps {
-  path: string;
+  id: number;
 }
 
-export async function PageBuilder({ path }: PageBuilderProps) {
+export async function PageBuilder({ id }: PageBuilderProps) {
   const page = await prisma.pages.findFirst({
     where: {
-      path,
+      id,
     },
   });
 
-  if (page === null) return notFound();
+  if (page === null) return null;
 
   return (
-    <Page
-      {...page}
-      navbarSlot={<NavbarBuilder />}
-      sectionsSlot={<PageSectionsBuilder pagesId={page.id} />}
-      footerSlot={<div>Footer</div>}
-    />
+    <Page {...page} sectionsSlot={<PageSectionsBuilder pageId={page.id} />} />
   );
 }
