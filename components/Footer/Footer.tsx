@@ -26,14 +26,12 @@ export async function Footer({
 }
 
 export async function FooterBuilder() {
-  let footer = await prisma.footer.findFirst();
+  const footer = await prisma.footer.findFirst();
   if (footer === null) return null;
   return (
     <Footer
       {...footer}
-      footerColumnsSlot={
-        <FooterColumnsBuilder id={footer.id} key={footer.id} />
-      }
+      footerColumnsSlot={<FooterColumnsBuilder id={footer.id} />}
     />
   );
 }

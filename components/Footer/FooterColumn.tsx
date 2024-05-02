@@ -13,16 +13,16 @@ export async function FooterColumn({ title, content }: FooterColumnProps) {
   );
 }
 
-interface FooterColumnBuilderProps {
+interface FooterColumnsBuilderProps {
   id: number;
 }
 
-export async function FooterColumnsBuilder({ id }: FooterColumnBuilderProps) {
+export async function FooterColumnsBuilder({ id }: FooterColumnsBuilderProps) {
   const footerColumns = await prisma.footerColumns.findMany({
     where: { fkFooter: id },
   });
 
   return footerColumns.map((footerColumn) => (
-    <FooterColumn {...footerColumn} />
+    <FooterColumn {...footerColumn} key={footerColumn.id} />
   ));
 }
