@@ -30,10 +30,10 @@ type ActivityBuilderProps = {
 };
 
 export async function ActivityBuilder({ id }: ActivityBuilderProps) {
-  const activities = await prisma.activities.findFirst({
+  const activity = await prisma.activities.findFirst({
     where: { id },
   });
-  if (activities === null) return null;
+  if (activity === null) return null;
 
-  return <Activity {...activities} />;
+  return <Activity {...activity} />;
 }
