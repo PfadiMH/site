@@ -5,21 +5,13 @@ import { NavbarBuilder } from "./Navbar/Navbar";
 import { GroupSectionsBuilder } from "./Sections/SectionsBuilder";
 
 export type PageProps = Prisma.GroupsGetPayload<{}> & {
-  navbarSlot: React.ReactNode;
   sectionsSlot: React.ReactNode;
-  footerSlot: React.ReactNode;
 };
 
-export async function Group({
-  navbarSlot,
-  sectionsSlot,
-  footerSlot,
-}: PageProps) {
+export async function Group({ sectionsSlot }: PageProps) {
   return (
-    <main className="min-h-screen p-24">
-      <div>{navbarSlot}</div>
+    <main>
       <div>{sectionsSlot}</div>
-      <div>{footerSlot}</div>
     </main>
   );
 }
@@ -40,9 +32,7 @@ export async function GroupBuilder({ id }: GroupBuilderProps) {
   return (
     <Group
       {...group}
-      navbarSlot={<NavbarBuilder />}
       sectionsSlot={<GroupSectionsBuilder groupId={group.id} />}
-      footerSlot={<div>Footer</div>}
     />
   );
 }

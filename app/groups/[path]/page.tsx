@@ -1,16 +1,15 @@
 import { Metadata } from "next";
 import prisma from "@/lib/prisma";
-import { PageBuilder } from "@/components/Page";
-import { isPagesAPIRouteMatch } from "next/dist/server/future/route-matches/pages-api-route-match";
 import { GroupBuilder } from "@/components/Group";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: {
-    path?: string;
+    path: string;
   };
 }
 
-async function getId(pathName?: string) {
+async function getId(pathName: string) {
   const groupsItem = await prisma.groups.findFirst({
     where: {
       pathName,
@@ -23,23 +22,23 @@ async function getId(pathName?: string) {
 }
 
 export async function generateMetadata({
-  params: { path },
+  params: { path: pathName },
 }: Props): Promise<Metadata> {
-  const groupsItem = await prisma.groups.findFirst({
+  const group = await prisma.groups.findFirst({
     where: {
-      path,
+      pathName,
     },
   });
 
-  if (groupsItem === null) return {};
+  if (group === null) return {};
 
   return {
-    title: groupsItem.title,
+    title: group.title,
   };
 }
 
 export default async function NextPage({ params: { path: pathName } }: Props) {
-  const groupsId = await getId(pathName);
-  if (groupsId === null) return null;
-  return <GroupBuilder id={groupsId} />;
+  const groupId = await getId(pathName);
+  if (groupId === null) return notFound();
+  return <GroupBuilder id={groupId} />;
 }
