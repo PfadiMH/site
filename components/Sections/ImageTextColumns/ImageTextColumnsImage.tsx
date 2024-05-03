@@ -1,5 +1,5 @@
 import { getFileInfo } from "@/lib/getAssetInfo";
-import { ImageComponent } from "../Shared/ImageComponent";
+import { ImageComponent } from "@/components/Shared/ImageComponent";
 
 export interface ImageTextColumnsImageBuilderProps {
   id: string;

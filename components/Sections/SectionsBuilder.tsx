@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
 import { CardGridBuilder } from "../CardsGrid/CardGrid";
+import { RichTextBuilder } from "./RichText/RichText";
 
 interface PageSectionsBuilder {
   pagesId: number;
@@ -36,6 +37,8 @@ export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
       case "card_grids":
         return <CardGridBuilder key={section.id} id={Number(section.item)} />;
 
+      case "rich_text":
+        return <RichTextBuilder key={section.id} id={Number(section.item)} />;
       default:
         return (
           <div title={JSON.stringify(section, null, 2)}>Unknown collection</div>
