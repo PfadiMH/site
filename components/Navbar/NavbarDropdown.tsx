@@ -1,7 +1,16 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
 
-export type NavbarDropdownProps = Prisma.NavbarDropdownsGetPayload<{}>;
+export type NavbarDropdownProps = Omit<
+  Prisma.NavbarDropdownsGetPayload<{}>,
+  "items"
+> & {
+  items: {
+    title: string;
+    groups_with: string;
+    url: string;
+  }[];
+};
 
 export async function NavbarDropdown({ title, items }: NavbarDropdownProps) {
   return <div title={JSON.stringify(items, null, 2)}>{title}</div>;
@@ -22,5 +31,9 @@ export async function NavbarDropdownBuilder({
 
   if (navbarDropdown === null) return null;
 
-  return <NavbarDropdown {...navbarDropdown} />;
+  const navbarDropdownPropperlyTyped: NavbarDropdownProps = {
+    ...navbarDropdown,
+    items: navbarDropdown.items as NavbarDropdownProps["items"],
+  };
+  return <NavbarDropdown {...navbarDropdownPropperlyTyped} />;
 }

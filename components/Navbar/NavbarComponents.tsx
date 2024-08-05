@@ -1,37 +1,70 @@
 import React from "react";
-import prisma from "@/lib/prisma";
+import prisma, { Prisma } from "@/lib/prisma";
 import { NavbarItemBuilder } from "./NavbarItem";
 import { NavbarDropdownBuilder } from "./NavbarDropdown";
+import { ImageComponent } from "../Shared/ImageComponent";
+import { getAssetPath } from "@/lib/getAssetInfo";
 
-export async function NavbarComponentsBuilder() {
+type NavbarComponentsBuilderProps = Prisma.NavbarGetPayload<{}>;
+type NavbarComponentBuilderProps = Prisma.NavbarComponentsGetPayload<{}>;
+
+export async function NavbarComponentsBuilder({
+  logo,
+}: NavbarComponentsBuilderProps) {
   const navbarComponents = await prisma.navbarComponents.findMany({
     orderBy: {
       sort: "asc",
     },
   });
 
-  return navbarComponents.map((navbarComponent) => {
-    if (navbarComponent.item === null) return null;
+  const navbarBuiltComponents = navbarComponents.map(NavbarComponentBuilder);
 
-    let itemIdInt = Number(navbarComponent.item);
+  const halfLength = Math.ceil(navbarBuiltComponents.length / 2);
+  const leftItems = navbarBuiltComponents.slice(0, halfLength);
+  const rightItems = navbarBuiltComponents.slice(halfLength);
 
-    switch (navbarComponent.collection) {
-      case "navbar_items":
-        return (
-          <NavbarItemBuilder id={itemIdInt} key={String(navbarComponent.id)} />
-        );
-
-      case "navbar_dropdowns":
-        return (
-          <NavbarDropdownBuilder id={itemIdInt} key={navbarComponent.id} />
-        );
-
-      default:
-        return (
-          <div title={JSON.stringify(navbarComponent, null, 2)}>
-            Unknown collection
-          </div>
-        );
-    }
-  });
+  return (
+    <ul className="flex justify-between items-center">
+      <div className="flex space-x-4">
+        {leftItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </div>
+      {logo && (
+        <div className="">
+          <ImageComponent title="logo" path={await getAssetPath(logo)} />
+        </div>
+      )}
+      <div className="flex space-x-4">
+        {rightItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </div>
+    </ul>
+  );
 }
+
+const NavbarComponentBuilder = (
+  navbarComponent: NavbarComponentBuilderProps
+) => {
+  if (navbarComponent.item === null) return null;
+
+  let itemIdInt = Number(navbarComponent.item);
+
+  switch (navbarComponent.collection) {
+    case "navbar_items":
+      return (
+        <NavbarItemBuilder id={itemIdInt} key={String(navbarComponent.id)} />
+      );
+
+    case "navbar_dropdowns":
+      return <NavbarDropdownBuilder id={itemIdInt} key={navbarComponent.id} />;
+
+    default:
+      return (
+        <div title={JSON.stringify(navbarComponent, null, 2)}>
+          Unknown collection
+        </div>
+      );
+  }
+};
