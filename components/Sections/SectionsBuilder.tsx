@@ -69,6 +69,11 @@ export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
               <RichTextBuilder key={section.id} id={Number(section.item)} />
             );
 
+          case "activities":
+            return (
+              <ActivityBuilder key={section.id} id={Number(section.item)} />
+            );
+
           default:
             return (
               <div title={JSON.stringify(section, null, 2)}>
