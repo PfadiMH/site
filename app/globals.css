@@ -30,9 +30,7 @@
 
 @layer base {
   body {
-    @apply mud-theme;
-    background-color: var(--color-background);
-    font-family: var(--poppins);
+    @apply mud-theme font-poppins bg-background;
   }
 
   h1,

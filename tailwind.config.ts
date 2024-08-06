@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        rockingsoda: ["var(--rockingsoda)"],
+        poppins: ["var(--poppins)"],
+      },
       colors: {
         background: "var(--color-background)",
         current: "var(--color-current)",
