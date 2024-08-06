@@ -24,18 +24,18 @@ export async function NavbarComponentsBuilder({
   const rightItems = navbarBuiltComponents.slice(halfLength);
 
   return (
-    <ul className="flex justify-between items-center">
-      <div className="flex space-x-4">
+    <ul className="flex justify-center items-center border-b-[#F4D51F] border-b-8">
+      <div className="flex space-x-4 px-8">
         {leftItems.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </div>
       {logo && (
-        <div className="">
+        <div className="mb-[-50px]">
           <ImageComponent title="logo" path={await getAssetPath(logo)} />
         </div>
       )}
-      <div className="flex space-x-4">
+      <div className="flex space-x-4 w-auto px-8">
         {rightItems.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
