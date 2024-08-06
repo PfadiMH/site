@@ -2,6 +2,7 @@ import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
 import { RichTextBuilder } from "./RichText/RichText";
 import { ActivityBuilder } from "./Activity/Activity";
+import { ThemeProvider } from "@/lib/ThemeContext";
 
 interface PageSectionsBuilderProps {
   pageId: number;
@@ -53,33 +54,44 @@ interface SectionsBuilderProps {
 
 export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
   return (
-    <div className="theme-alternator">
-      {sections.map((section) => {
+    <div>
+      {sections.map((section, i) => {
+        let sectionBuilder;
         switch (section.collection) {
           case "image_text_columns":
-            return (
+            sectionBuilder = (
               <ImageTextColumnsBuilder
                 key={section.id}
                 id={Number(section.item)}
               />
             );
-
+            break;
           case "rich_text":
-            return (
+            sectionBuilder = (
               <RichTextBuilder key={section.id} id={Number(section.item)} />
             );
+            break;
           case "activities":
-            return (
+            sectionBuilder = (
               <ActivityBuilder key={section.id} id={Number(section.item)} />
             );
-
+            break;
           default:
-            return (
+            sectionBuilder = (
               <div title={JSON.stringify(section, null, 2)}>
                 Unknown collection
               </div>
             );
         }
+
+        const theme = i % 2 === 0 ? "mud" : "sun";
+        return (
+          <div key={section.id} className={`${theme}-theme`}>
+            <ThemeProvider key={section.id} theme={theme}>
+              {sectionBuilder}
+            </ThemeProvider>
+          </div>
+        );
       })}
     </div>
   );

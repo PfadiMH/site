@@ -3,44 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --sun-backround: #ffaf1b;
-  --sun-color: #210002;
+  --sun-background: #ffaf1b;
+  --sun-current: #210002;
   --sun-primary: #5c1715;
 
   --mud-background: #210002;
-  --mud-color: #ffaf1b;
+  --mud-current: #ffaf1b;
   --mud-primary: #5c1715;
 }
 
 .sun-theme {
-  --background: var(--sun-backround);
-  --color: var(--sun-color);
-  --primary: var(--sun-primary);
+  --color-background: var(--sun-background);
+  --color-current: var(--sun-current);
+  --color-primary: var(--sun-primary);
 
-  color: var(--color);
+  color: var(--color-current);
 }
 
 .mud-theme {
-  --background: var(--mud-background);
-  --color: var(--mud-color);
-  --primary: var(--mud-primary);
+  --color-background: var(--mud-background);
+  --color-current: var(--mud-current);
+  --color-primary: var(--mud-primary);
 
-  color: var(--color);
-}
-
-.theme-alternator > *:nth-child(even) {
-  @apply sun-theme;
-  background-color: var(--background);
-}
-.theme-alternator > *:nth-child(odd) {
-  @apply mud-theme;
-  background-color: var(--background);
+  color: var(--color-current);
 }
 
 @layer base {
   body {
     @apply mud-theme;
-    background-color: var(--background);
+    background-color: var(--color-background);
     font-family: var(--poppins);
   }
 
