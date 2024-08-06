@@ -24,6 +24,14 @@ The devcontainer consists of the following services:
 - PostgreSQL Database
 - Directus CMS
 
+## Setup
+
+Before getting started, install the global dependencies:
+
+```bash
+bun install
+```
+
 ### Directus Setup
 
 Once the devcontainer is running, you can access the Directus CMS at [http://localhost:8055](http://localhost:8055).
@@ -42,13 +50,7 @@ Create a random new Collection to fix the No Permission error. You can delete it
 
 1. In Directus, create a new directus token under Users -> Admin User -> Token.
 2. Copy the token and add it to the `.env` file as `DIRECTUS_TOKEN`.
-3. Install the dependencies:
-
-   ```bash
-   bun install
-   ```
-
-4. To start the frontend, run the following command in the terminal:
+3. To start the frontend, run the following command in the terminal:
 
    ```bash
    bun dev --turbo
