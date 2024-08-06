@@ -4,6 +4,7 @@ import React from "react";
 import { NavbarBuilder } from "./Navbar/Navbar";
 import { FooterBuilder } from "./Footer/Footer";
 import { PageSectionsBuilder } from "./Sections/SectionsBuilder";
+import { Parallax } from "./Parallax/Parallax";
 
 export type PageProps = Prisma.PagesGetPayload<{}> & {
   sectionsSlot: React.ReactNode;
@@ -31,6 +32,14 @@ export async function PageBuilder({ id }: PageBuilderProps) {
   if (page === null) return null;
 
   return (
-    <Page {...page} sectionsSlot={<PageSectionsBuilder pageId={page.id} />} />
+    <Page
+      {...page}
+      sectionsSlot={
+        <>
+          {page.path == "/" ? <Parallax /> : null}
+          <PageSectionsBuilder pageId={page.id} />
+        </>
+      }
+    />
   );
 }
