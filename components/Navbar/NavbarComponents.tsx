@@ -1,7 +1,7 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
 import { NavbarItemBuilder } from "./NavbarItem";
-import { NavbarDropdownBuilder } from "./NavbarDropdown";
+import { NavbarDropdownBuilder } from "./NavbarDropdownBuilder";
 import { ImageComponent } from "../Shared/ImageComponent";
 import { getAssetPath } from "@/lib/getAssetInfo";
 
@@ -24,18 +24,18 @@ export async function NavbarComponentsBuilder({
   const rightItems = navbarBuiltComponents.slice(halfLength);
 
   return (
-    <ul className="flex justify-center items-center border-b-[#F4D51F] border-b-8">
-      <div className="flex space-x-4 px-8">
+    <ul className="flex justify-center items-end border-b-[#F4D51F] border-b-8">
+      <div className="flex space-x-4 px-8 mb-1">
         {leftItems.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </div>
       {logo && (
-        <div className="mb-[-50px]">
+        <div className="mb-[-50px] z-50">
           <ImageComponent title="logo" path={await getAssetPath(logo)} />
         </div>
       )}
-      <div className="flex space-x-4 w-auto px-8">
+      <div className="flex space-x-4 w-auto px-8 mb-1">
         {rightItems.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
