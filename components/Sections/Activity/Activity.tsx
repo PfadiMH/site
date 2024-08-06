@@ -2,6 +2,7 @@ import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
 import { WYSIWYG } from "@/components/Shared/WYSIWYGComponent";
 import style from "./Activity.module.css";
+import { LocationBuilder } from "@/components/Shared/LocationComponent";
 
 export type ActivityProps = Prisma.ActivitiesGetPayload<{}> & {};
 
@@ -17,7 +18,7 @@ export async function Activity({
     <section>
       {title && <h1>{title}</h1>}
       {startTime && <p>{startTime.toDateString()}</p>}
-      {startLocation && <p>{startLocation}</p>}
+      {startLocation && <LocationBuilder id={startLocation}></LocationBuilder>}
       {endLocation && <p>{endLocation}</p>}
       {endTime && <p>{endTime.toDateString()}</p>}
       {description && <WYSIWYG style={style} content={description} />}

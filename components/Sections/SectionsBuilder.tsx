@@ -53,7 +53,7 @@ interface SectionsBuilderProps {
 
 export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
   return (
-    <div className="theme-alternator">
+    <div className='theme-alternator'>
       {sections.map((section) => {
         switch (section.collection) {
           case "image_text_columns":
@@ -67,10 +67,6 @@ export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
           case "rich_text":
             return (
               <RichTextBuilder key={section.id} id={Number(section.item)} />
-            );
-          case "activities":
-            return (
-              <ActivityBuilder key={section.id} id={Number(section.item)} />
             );
 
           default:
