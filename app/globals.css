@@ -2,18 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  @apply text-4xl font-bold;
+:root {
+  --sun-backround: #ffaf1b;
+  --sun-color: #210002;
+  --sun-primary: #5c1715;
+
+  --mud-background: #210002;
+  --mud-color: #ffaf1b;
+  --mud-primary: #5c1715;
 }
 
-h2 {
-  @apply text-3xl font-bold;
+.sun-theme {
+  --background: var(--sun-backround);
+  --color: var(--sun-color);
+  --primary: var(--sun-primary);
+
+  color: var(--color);
 }
 
-h3 {
-  @apply text-2xl font-bold;
+.mud-theme {
+  --background: var(--mud-background);
+  --color: var(--mud-color);
+  --primary: var(--mud-primary);
+
+  color: var(--color);
 }
 
-h4 {
-  @apply text-xl font-bold;
+.theme-alternator > *:nth-child(even) {
+  @apply sun-theme;
+  background-color: var(--background);
+}
+.theme-alternator > *:nth-child(odd) {
+  @apply mud-theme;
+  background-color: var(--background);
+}
+
+@layer base {
+  body {
+    @apply mud-theme;
+    background-color: var(--background);
+    font-family: var(--poppins);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+    font-family: var(--rockingsoda);
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
 }

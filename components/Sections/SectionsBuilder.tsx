@@ -52,22 +52,35 @@ interface SectionsBuilderProps {
 }
 
 export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
-  return sections.map((section) => {
-    switch (section.collection) {
-      case "image_text_columns":
-        return (
-          <ImageTextColumnsBuilder key={section.id} id={Number(section.item)} />
-        );
+  return (
+    <div className="theme-alternator">
+      {sections.map((section) => {
+        switch (section.collection) {
+          case "image_text_columns":
+            return (
+              <ImageTextColumnsBuilder
+                key={section.id}
+                id={Number(section.item)}
+              />
+            );
 
-      case "rich_text":
-        return <RichTextBuilder key={section.id} id={Number(section.item)} />;
-      case "activities":
-        return <ActivityBuilder key={section.id} id={Number(section.item)} />;
+          case "rich_text":
+            return (
+              <RichTextBuilder key={section.id} id={Number(section.item)} />
+            );
+          case "activities":
+            return (
+              <ActivityBuilder key={section.id} id={Number(section.item)} />
+            );
 
-      default:
-        return (
-          <div title={JSON.stringify(section, null, 2)}>Unknown collection</div>
-        );
-    }
-  });
+          default:
+            return (
+              <div title={JSON.stringify(section, null, 2)}>
+                Unknown collection
+              </div>
+            );
+        }
+      })}
+    </div>
+  );
 }

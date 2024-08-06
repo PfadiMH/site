@@ -14,12 +14,12 @@ export async function ImageTextColumns({
   rightImageSlot,
 }: ImageTextColumnsProps) {
   return (
-    <div>
+    <section>
       {title && <h1>{title}</h1>}
       {leftImageSlot}
       {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
       {rightImageSlot}
-    </div>
+    </section>
   );
 }
 

@@ -14,14 +14,14 @@ export async function Activity({
   description,
 }: ActivityProps) {
   return (
-    <div>
+    <section>
       {title && <h1>{title}</h1>}
       {startTime && <p>{startTime.toDateString()}</p>}
       {startLocation && <p>{startLocation}</p>}
       {endLocation && <p>{endLocation}</p>}
       {endTime && <p>{endTime.toDateString()}</p>}
       {description && <WYSIWYG style={style} content={description} />}
-    </div>
+    </section>
   );
 }
 
