@@ -7,14 +7,18 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      background: "var(--color-background)",
-      current: "var(--color-current)",
-      primary: "var(--color-primary)",
-      "brand-yellow": "#f4d51f",
-      "brand-red": "#be1622",
-    },
     extend: {
+      fontFamily: {
+        rockingsoda: ["var(--rockingsoda)"],
+        poppins: ["var(--poppins)"],
+      },
+      colors: {
+        background: "var(--color-background)",
+        current: "var(--color-current)",
+        primary: "var(--color-primary)",
+        "brand-yellow": "#f4d51f",
+        "brand-red": "#be1622",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
