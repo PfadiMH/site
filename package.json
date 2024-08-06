@@ -19,6 +19,7 @@
     "postgres": "^3.4.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-scroll-parallax": "^3.4.5",
     "zod": "^3.22.4"
   },
   "devDependencies": {
