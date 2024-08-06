@@ -182,7 +182,6 @@ model DirectusFiles {
   directusSettingsDirectusSettingsPublicBackgroundTodirectusFiles DirectusSettings[] @relation("directus_settings_public_backgroundTodirectus_files")
   directusSettingsDirectusSettingsPublicFaviconTodirectusFiles    DirectusSettings[] @relation("directus_settings_public_faviconTodirectus_files")
   directusSettingsDirectusSettingsPublicForegroundTodirectusFiles DirectusSettings[] @relation("directus_settings_public_foregroundTodirectus_files")
-  footer                                                          Footer[]
   groups                                                          Groups[]
   imageTextColumnsImageTextColumnsLeftImageTodirectusFiles        ImageTextColumns[] @relation("image_text_columns_left_imageTodirectus_files")
   imageTextColumnsImageTextColumnsRightImageTodirectusFiles       ImageTextColumns[] @relation("image_text_columns_right_imageTodirectus_files")
@@ -570,9 +569,6 @@ model Footer {
   id            Int             @id @default(autoincrement())
   userUpdated   String?         @map("user_updated") @db.Uuid
   dateUpdated   DateTime?       @map("date_updated") @db.Timestamptz(6)
-  content       String?
-  logo          String?         @db.Uuid
-  directusFiles DirectusFiles?  @relation(fields: [logo], references: [id], onUpdate: NoAction, map: "footer_logo_foreign")
   directusUsers DirectusUsers?  @relation(fields: [userUpdated], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "footer_user_updated_foreign")
   footerColumns FooterColumns[]
 

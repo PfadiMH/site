@@ -6,7 +6,7 @@ type FooterColumnProps = Prisma.FooterColumnsGetPayload<{}>;
 
 export async function FooterColumn({ title, content }: FooterColumnProps) {
   return (
-    <div>
+    <div className="">
       <h2>{title}</h2>
       {content && <WYSIWYG content={content} style={style} />}
     </div>

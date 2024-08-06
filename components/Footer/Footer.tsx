@@ -11,16 +11,12 @@ export type FooterProps = Prisma.FooterGetPayload<{}> & {
   footerColumnsSlot: React.ReactNode;
 };
 
-export async function Footer({
-  logo,
-  content,
-  footerColumnsSlot,
-}: FooterProps) {
+export async function Footer({ footerColumnsSlot }: FooterProps) {
   return (
     <footer>
-      <div>{footerColumnsSlot}</div>
-      {logo && <ImageComponent path={await getAssetPath(logo)} title="Logo" />}
-      {content && <WYSIWYG style={style} content={content} />}
+      <div className="flex justify-center justify-around">
+        {footerColumnsSlot}
+      </div>
     </footer>
   );
 }
