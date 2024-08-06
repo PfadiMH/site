@@ -1906,83 +1906,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: footer
-    field: content
-    type: text
-    meta:
-      collection: footer
-      conditions: null
-      display: null
-      display_options: null
-      field: content
-      group: null
-      hidden: false
-      interface: input-rich-text-html
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 6
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: content
-      table: footer
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: footer
-    field: logo
-    type: uuid
-    meta:
-      collection: footer
-      conditions: null
-      display: null
-      display_options: null
-      field: logo
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 5
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: logo
-      table: footer
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: footer
     field: columns
     type: alias
     meta:
@@ -6925,27 +6848,6 @@ relations:
       constraint_name: footer_user_updated_foreign
       on_update: NO ACTION
       on_delete: NO ACTION
-  - collection: footer
-    field: logo
-    related_collection: directus_files
-    meta:
-      junction_field: null
-      many_collection: footer
-      many_field: logo
-      one_allowed_collections: null
-      one_collection: directus_files
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: footer
-      column: logo
-      foreign_key_table: directus_files
-      foreign_key_column: id
-      constraint_name: footer_logo_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
   - collection: footer_columns
     field: user_created
     related_collection: directus_users
