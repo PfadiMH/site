@@ -11,7 +11,7 @@ export type PageProps = Prisma.PagesGetPayload<{}> & {
 
 export async function Page({ sectionsSlot }: PageProps) {
   return (
-    <main>
+    <main className="relative">
       <div>{sectionsSlot}</div>
     </main>
   );

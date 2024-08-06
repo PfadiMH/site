@@ -7,7 +7,9 @@ export type NavbarProps = {
 };
 
 export function Navbar({ navbarCompontentsSlot }: NavbarProps) {
-  return <nav className="bg-white p-4">{navbarCompontentsSlot}</nav>;
+  return (
+    <nav className="bg-white sticky top-0 z-50">{navbarCompontentsSlot}</nav>
+  );
 }
 
 export async function NavbarBuilder() {
