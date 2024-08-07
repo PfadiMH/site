@@ -1,28 +1,31 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import prisma, { Prisma } from "@/lib/prisma";
-import { Loader } from "@googlemaps/js-api-loader";
+import type { LocationProps } from "../Location/LocationBuilder";
+import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
-export type LocationProps = Prisma.LocationsGetPayload<{}> & {};
+export default function Location({ coordinates }: LocationProps) {
+  const center: google.maps.LatLngLiteral = {
+    lat: parseFloat(JSON.stringify((coordinates as any)["coordinates"][0])),
+    lng: parseFloat(JSON.stringify((coordinates as any)["coordinates"][1])),
+  };
 
-export async function Location({ coordinates }: LocationProps) {
   return (
-    <section>
-      {coordinates && <h1>{JSON.stringify(coordinates["coordinates"][0])}</h1>}
-    </section>
+    <>
+      {coordinates && (
+        <APIProvider apiKey={"AIzaSyBxF48DO6GpNH2yrM0XpzwjIZH7HoQQyXU"}>
+          {center && (
+            <Map
+              mapTypeControl
+              defaultCenter={center}
+              defaultZoom={3}
+              gestureHandling={"greedy"}
+              disableDefaultUI={true}
+            >
+              <Marker position={center} />
+            </Map>
+          )}
+        </APIProvider>
+      )}
+    </>
   );
-}
-
-type LocationBuilderProps = {
-  id: number;
-};
-
-export async function LocationBuilder({ id }: LocationBuilderProps) {
-  const location = await prisma.locations.findFirst({
-    where: { id },
-  });
-  if (location === null) return null;
-  2;
-  return <Location {...location} />;
 }
