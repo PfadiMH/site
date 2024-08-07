@@ -1,6 +1,7 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
-import { NavbarComponentsBuilder } from "./NavbarComponents";
+import { NavbarComponents } from "./NavbarComponentsComponent";
+import { NavbarComponentsBuilder } from "./NavbarComponentsBuilder";
 
 export type NavbarProps = {
   navbarCompontentsSlot: React.ReactNode;
