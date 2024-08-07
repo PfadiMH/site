@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/lib/ThemeContext";
 import { ReactNode } from "react";
+import { PremudBreak, PresunBreak } from "../SectionBreak";
 
 interface SectionProps {
   contentSlot: ReactNode;
@@ -14,21 +15,9 @@ function Section({ contentSlot, index }: SectionProps) {
 
   return (
     <div className={`${theme}-theme`}>
-      {isSun && (
-        <object
-          className="w-full"
-          type="image/svg+xml"
-          data="/section-break-presun.svg"
-        />
-      )}
+      {isSun && <PresunBreak />}
       <ThemeProvider theme={theme}>{contentSlot}</ThemeProvider>
-      {isSun && (
-        <object
-          className="w-full"
-          type="image/svg+xml"
-          data="/section-break-premud.svg"
-        />
-      )}
+      {isSun && <PremudBreak />}
     </div>
   );
 }

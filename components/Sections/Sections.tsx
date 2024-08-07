@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { PresunBreak } from "../SectionBreak";
 
 interface SectionsProps {
   sectionsSlot: ReactNode;
@@ -8,11 +9,7 @@ function Sections({ sectionsSlot }: SectionsProps) {
   return (
     <div>
       {sectionsSlot}
-      <object
-        className="w-full"
-        type="image/svg+xml"
-        data="/section-break-presun.svg"
-      />
+      <PresunBreak />
     </div>
   );
 }
