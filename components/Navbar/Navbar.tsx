@@ -1,6 +1,6 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
-import { NavbarComponents } from "./NavbarComponentsComponent";
+import { NavbarComponents } from "./NavbarComponents";
 import { NavbarComponentsBuilder } from "./NavbarComponentsBuilder";
 
 export type NavbarProps = {
