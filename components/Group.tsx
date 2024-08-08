@@ -9,7 +9,7 @@ export type PageProps = Prisma.GroupsGetPayload<{}> & {
 
 export async function Group({ sectionsSlot }: PageProps) {
   return (
-    <main>
+    <main className="text-center">
       <div>{sectionsSlot}</div>
     </main>
   );
