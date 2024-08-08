@@ -6,5 +6,5 @@ export interface ImageComponentsProps {
 }
 
 export function ImageComponent({ path, title }: ImageComponentsProps) {
-  return <Image src={path} alt={title} width={100} height={100} />;
+  return <Image src={path} alt={title} fill={true} className='object-cover' />;
 }
