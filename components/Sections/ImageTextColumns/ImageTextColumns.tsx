@@ -19,24 +19,20 @@ export async function ImageTextColumns({
   return (
     <section className='bg-background place-items-center'>
       {title && <h1>{title}</h1>}
-      <div className='grid grid-cols-1 lg:grid-cols-3 p-4 gap-4'>
+      <div className='grid grid-rows-[auto_1fr_auto] md:grid-rows-[max-content] md:grid-cols-[auto_max-content_auto] gap-5'>
         {leftImageInfo && (
-          <div className='h-[30vh] lg:h-auto relative overflow-hidden rounded-lg'>
+          <div className='relative w-full overflow-hidden rounded-lg'>
             <ImageComponent
               path={leftImageInfo.path}
               title={leftImageInfo.title || ""}
             />
           </div>
         )}
-        <div className=''>
-          {content && (
-            <div className='overflow-hidden bg-primary rounded-lg p-4'>
-              <WYSIWYG content={content} style={style}></WYSIWYG>
-            </div>
-          )}
+        <div className='overflow-hidden bg-accent h-[max-content] rounded-lg p-4'>
+          {content && <WYSIWYG content={content} style={style}></WYSIWYG>}
         </div>
         {rightImageInfo && (
-          <div className='p-4 h-[30vh] lg:h-auto relative overflow-hidden rounded-lg '>
+          <div className='relative w-full overflow-hidden rounded-lg '>
             <ImageComponent
               path={rightImageInfo.path}
               title={rightImageInfo.title || ""}

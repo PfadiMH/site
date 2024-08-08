@@ -1,5 +1,6 @@
 .wysiwyg {
   font-family: var(--poppins);
+  text-align: left;
 }
 .wysiwyg h1 {
 }
