@@ -186,6 +186,7 @@ model DirectusFiles {
   groups                                                          Groups[]
   imageTextColumnsImageTextColumnsLeftImageTodirectusFiles        ImageTextColumns[] @relation("image_text_columns_left_imageTodirectus_files")
   imageTextColumnsImageTextColumnsRightImageTodirectusFiles       ImageTextColumns[] @relation("image_text_columns_right_imageTodirectus_files")
+  navbar                                                          Navbar[]
   news                                                            News[]
   pages                                                           Pages[]
 
@@ -693,7 +694,8 @@ model Navbar {
   id               Int                @id @default(autoincrement())
   userUpdated      String?            @map("user_updated") @db.Uuid
   dateUpdated      DateTime?          @map("date_updated") @db.Timestamptz(6)
-  title            String
+  logo             String?            @db.Uuid
+  directusFiles    DirectusFiles?     @relation(fields: [logo], references: [id], onUpdate: NoAction, map: "navbar_logo_foreign")
   directusUsers    DirectusUsers?     @relation(fields: [userUpdated], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "navbar_user_updated_foreign")
   navbarComponents NavbarComponents[]
 
