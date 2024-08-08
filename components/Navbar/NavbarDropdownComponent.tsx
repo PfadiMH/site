@@ -43,9 +43,18 @@ export function NavbarDropdown({ title, items }: NavbarDropdownProps) {
       <div className="md:hidden flex flex-col gap-1">
         <button
           onClick={changeState}
-          className="text-brand-yellow text-2xl font-rockingsoda bg-primary  w-full p-3 flex justify-center"
+          className="text-brand-yellow items-center gap-2 text-2xl font-rockingsoda bg-primary  w-full p-3 flex justify-center"
         >
           {title}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 95.05 57.43"
+            className={`fill-brand-yellow stroke-none w-5 h-5 transform transition duration-50 ${
+              open ? "-rotate-180" : ""
+            }`}
+          >
+            <polygon points="0 11.17 39.67 57 84 6.5 73 2.17 42 36.36 9.83 0 0 11.17" />
+          </svg>
         </button>
         {open && (
           <div className="pl-2 flex gap-1 flex-col">
@@ -80,9 +89,18 @@ export function NavbarDropdown({ title, items }: NavbarDropdownProps) {
       <div className="hidden md:block">
         <button
           onClick={changeState}
-          className="text-black text-2xl font-rockingsoda"
+          className="text-black flex items-center gap-1 text-2xl font-rockingsoda"
         >
           {title}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 95.05 57.43"
+            className={`fill-black stroke-none w-5 h-5 transform transition duration-250 ease-in-out ${
+              open ? "rotate-180" : ""
+            }`}
+          >
+            <polygon points="0 11.17 39.67 57 84 6.5 73 2.17 42 36.36 9.83 0 0 11.17" />
+          </svg>
         </button>
         {open && (
           <div className="z-30 min-w-36 translate-y-4 drop-shadow-[0px_0px_8px_#000000] absolute items-center bg-white flex flex-col text-black font-rockingsoda text-2xl rounded-xl p-4 border-black b-2">
