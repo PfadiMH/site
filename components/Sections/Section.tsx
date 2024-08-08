@@ -8,10 +8,9 @@ interface SectionProps {
 }
 
 function Section({ contentSlot, index }: SectionProps) {
-  const isMud = index % 2 === 0;
   const isSun = index % 2 === 1;
 
-  const theme = isMud ? "mud" : "sun";
+  const theme = isSun ? "sun" : "mud";
 
   return (
     <div className={`${theme}-theme`}>
