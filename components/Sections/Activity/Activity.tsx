@@ -14,7 +14,7 @@ export async function Activity({
   description,
 }: ActivityProps) {
   return (
-    <section>
+    <section className="bg-background">
       {title && <h1>{title}</h1>}
       {startTime && <p>{startTime.toDateString()}</p>}
       {startLocation && <p>{startLocation}</p>}

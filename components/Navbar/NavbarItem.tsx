@@ -5,9 +5,24 @@ export type NavbarItemProps = Prisma.NavbarItemsGetPayload<{}>;
 
 export async function NavbarItem({ title, url }: NavbarItemProps) {
   return (
-    <a className="text-blue-500 underline" href={url || undefined}>
-      {title}
-    </a>
+    <>
+      {/* MOBILE */}
+      <div className="md:hidden bg-primary  w-full p-3 flex justify-center">
+        <a
+          href={url || undefined}
+          className="text-brand-yellow text-2xl font-rockingsoda"
+        >
+          {title}
+        </a>
+      </div>
+      {/* DESKTOP */}
+      <a
+        className="hidden md:block text-black text-2xl font-rockingsoda"
+        href={url || undefined}
+      >
+        {title}
+      </a>
+    </>
   );
 }
 
