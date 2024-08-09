@@ -9,7 +9,7 @@ export type FooterProps = Prisma.FooterGetPayload<{}> & {
 export async function Footer({ footerColumnsSlot }: FooterProps) {
   return (
     <footer>
-      <div className="flex justify-center justify-around bg-current flex-wrap lg:flex-nowrap">
+      <div className="flex justify-around bg-current gap-5 flex-wrap lg:flex-nowrap">
         {footerColumnsSlot}
       </div>
     </footer>
