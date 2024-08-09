@@ -1,4 +1,4 @@
-import prisma, { Prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 import { WYSIWYG } from "../Shared/WYSIWYGComponent";
 import style from "./FooterColumn.module.css";
 
@@ -11,18 +11,4 @@ export async function FooterColumn({ title, content }: FooterColumnProps) {
       {content && <WYSIWYG content={content} style={style} />}
     </div>
   );
-}
-
-interface FooterColumnsBuilderProps {
-  id: number;
-}
-
-export async function FooterColumnsBuilder({ id }: FooterColumnsBuilderProps) {
-  const footerColumns = await prisma.footerColumns.findMany({
-    where: { fkFooter: id },
-  });
-
-  return footerColumns.map((footerColumn) => (
-    <FooterColumn {...footerColumn} key={footerColumn.id} />
-  ));
 }
