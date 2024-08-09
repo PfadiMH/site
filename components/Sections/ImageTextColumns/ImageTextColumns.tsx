@@ -17,22 +17,26 @@ export async function ImageTextColumns({
   leftImageInfo,
 }: ImageTextColumnsProps) {
   return (
-    <section className='bg-background place-items-center'>
+    <section className='bg-background p-4'>
       {title && <h1>{title}</h1>}
-      <div className='grid grid-rows-[auto_1fr_auto] md:grid-rows-[max-content] md:grid-cols-[auto_max-content_auto] gap-5'>
+      <div className='flex flex-col md:flex-row items-stretch gap-4'>
         {leftImageInfo && (
-          <div className='relative w-full overflow-hidden rounded-lg'>
+          <div
+            className={`rounded-lg overflow-hidden md:basis-[30%] grow-${leftImageInfo.width}`}
+          >
             <ImageComponent
               path={leftImageInfo.path}
               title={leftImageInfo.title || ""}
             />
           </div>
         )}
-        <div className='overflow-hidden bg-accent h-[max-content] rounded-lg p-4'>
+        <div className='bg-accent rounded-lg p-4 shrink min-w-0'>
           {content && <WYSIWYG content={content} style={style}></WYSIWYG>}
         </div>
         {rightImageInfo && (
-          <div className='relative w-full overflow-hidden rounded-lg '>
+          <div
+            className={`rounded-lg overflow-hidden md:basis-[30%] grow-${rightImageInfo.width}`}
+          >
             <ImageComponent
               path={rightImageInfo.path}
               title={rightImageInfo.title || ""}
