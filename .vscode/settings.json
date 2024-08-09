@@ -2,5 +2,17 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "pfadimh-site-postgres",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "pfadimh-site-postgres",
+      "database": "directus",
+      "username": "directus",
+      "password": "directus"
+    }
+  ]
 }

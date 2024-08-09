@@ -2,18 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  @apply text-4xl font-bold;
+:root {
+  --sun-background: #ffaf1b;
+  --sun-current: #210002;
+  --sun-primary: #5c1715;
+  --sun-accent: #f7a000;
+
+  --mud-background: #210002;
+  --mud-current: #ffaf1b;
+  --mud-primary: #5c1715;
+  --mud-accent: #390206;
 }
 
-h2 {
-  @apply text-3xl font-bold;
+.sun-theme {
+  --color-background: var(--sun-background);
+  --color-current: var(--sun-current);
+  --color-primary: var(--sun-primary);
+  --color-accent: var(--sun-accent);
+
+  color: var(--color-current);
 }
 
-h3 {
-  @apply text-2xl font-bold;
+.mud-theme {
+  --color-background: var(--mud-background);
+  --color-current: var(--mud-current);
+  --color-primary: var(--mud-primary);
+  --color-accent: var(--mud-accent);
+
+  color: var(--color-current);
 }
 
-h4 {
-  @apply text-xl font-bold;
+@layer base {
+  body {
+    @apply mud-theme font-poppins bg-background;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+    font-family: var(--rockingsoda);
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
 }

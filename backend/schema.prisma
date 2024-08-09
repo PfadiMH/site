@@ -186,6 +186,7 @@ model DirectusFiles {
   groups                                                          Groups[]
   imageTextColumnsImageTextColumnsLeftImageTodirectusFiles        ImageTextColumns[] @relation("image_text_columns_left_imageTodirectus_files")
   imageTextColumnsImageTextColumnsRightImageTodirectusFiles       ImageTextColumns[] @relation("image_text_columns_right_imageTodirectus_files")
+  navbar                                                          Navbar[]
   news                                                            News[]
   pages                                                           Pages[]
 
@@ -605,9 +606,9 @@ model Groups {
   userUpdated                                   String?          @map("user_updated") @db.Uuid
   dateUpdated                                   DateTime?        @map("date_updated") @db.Timestamptz(6)
   title                                         String
-  pathName                                      String           @unique(map: "groups_path_name_unique") @map("path_name") @db.VarChar(255)
   heroTitle                                     String?          @map("hero_title")
   heroBackground                                String?          @map("hero_background") @db.Uuid
+  pathName                                      String           @unique(map: "groups_path_name_unique") @map("path_name") @db.VarChar(255)
   directusUsersDirectusUsersGroupTogroups       DirectusUsers[]  @relation("directus_users_groupTogroups")
   directusFiles                                 DirectusFiles?   @relation(fields: [heroBackground], references: [id], onUpdate: NoAction, map: "groups_hero_background_foreign")
   directusUsersGroupsUserCreatedTodirectusUsers DirectusUsers?   @relation("groups_user_createdTodirectus_users", fields: [userCreated], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "groups_user_created_foreign")
@@ -622,6 +623,7 @@ model GroupsSections {
   groupsId   Int?    @map("groups_id")
   item       String? @db.VarChar(255)
   collection String? @db.VarChar(255)
+  sort       Int?
   groups     Groups? @relation(fields: [groupsId], references: [id], onUpdate: NoAction, map: "groups_sections_groups_id_foreign")
 
   @@map("groups_sections")
@@ -692,7 +694,8 @@ model Navbar {
   id               Int                @id @default(autoincrement())
   userUpdated      String?            @map("user_updated") @db.Uuid
   dateUpdated      DateTime?          @map("date_updated") @db.Timestamptz(6)
-  title            String
+  logo             String?            @db.Uuid
+  directusFiles    DirectusFiles?     @relation(fields: [logo], references: [id], onUpdate: NoAction, map: "navbar_logo_foreign")
   directusUsers    DirectusUsers?     @relation(fields: [userUpdated], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "navbar_user_updated_foreign")
   navbarComponents NavbarComponents[]
 
@@ -787,7 +790,7 @@ model Pages {
   dateCreated                                  DateTime?       @map("date_created") @db.Timestamptz(6)
   userUpdated                                  String?         @map("user_updated") @db.Uuid
   dateUpdated                                  DateTime?       @map("date_updated") @db.Timestamptz(6)
-  path                                         String          @db.VarChar(255)
+  path                                         String          @unique(map: "pages_path_unique") @db.VarChar(255)
   title                                        String
   description                                  String
   heroTitle                                    String?         @map("hero_title")

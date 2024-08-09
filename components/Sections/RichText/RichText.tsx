@@ -6,7 +6,11 @@ import style from "./RichText.module.css";
 export type RichTextProps = Prisma.RichTextGetPayload<{}>;
 
 export function RichText({ content }: RichTextProps) {
-  return <WYSIWYG style={style} content={content} />;
+  return (
+    <section className="bg-background">
+      <WYSIWYG style={style} content={content} />
+    </section>
+  );
 }
 
 export interface RichTextBuilderProps {

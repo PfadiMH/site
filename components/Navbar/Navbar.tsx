@@ -1,17 +1,15 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
-import { NavbarComponentsBuilder } from "./NavbarComponents";
+import { NavbarComponents } from "./NavbarComponents";
+import { NavbarComponentsBuilder } from "./NavbarComponentsBuilder";
 
-export type NavbarProps = Prisma.NavbarGetPayload<{}> & {
+export type NavbarProps = {
   navbarCompontentsSlot: React.ReactNode;
 };
 
-export function Navbar({ title, navbarCompontentsSlot }: NavbarProps) {
+export function Navbar({ navbarCompontentsSlot }: NavbarProps) {
   return (
-    <nav>
-      <h1>{title}</h1>
-      <div className="flex space-x-4">{navbarCompontentsSlot}</div>
-    </nav>
+    <nav className="bg-white sticky top-0 z-50">{navbarCompontentsSlot}</nav>
   );
 }
 
@@ -21,6 +19,6 @@ export async function NavbarBuilder() {
   if (navbar === null) return null;
 
   return (
-    <Navbar {...navbar} navbarCompontentsSlot={<NavbarComponentsBuilder />} />
+    <Navbar navbarCompontentsSlot={<NavbarComponentsBuilder {...navbar} />} />
   );
 }
