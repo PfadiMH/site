@@ -16,6 +16,7 @@ const config: Config = {
         background: "var(--color-background)",
         current: "var(--color-current)",
         primary: "var(--color-primary)",
+        accent: "var(--color-accent)",
         "brand-yellow": "#f4d51f",
         "brand-red": "#be1622",
       },

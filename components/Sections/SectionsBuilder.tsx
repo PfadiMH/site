@@ -2,7 +2,9 @@ import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
 import { RichTextBuilder } from "./RichText/RichText";
 import { ActivityBuilder } from "./Activity/Activity";
-import { ThemeProvider } from "@/lib/ThemeContext";
+import { FC } from "react";
+import Section from "./Section";
+import Sections from "./Sections";
 
 interface PageSectionsBuilderProps {
   pageId: number;
@@ -48,51 +50,46 @@ export async function GroupSectionsBuilder({
   );
 }
 
+interface SectionRef {
+  collection: string;
+  item: string;
+  id: number;
+}
+
+interface SectionBuilderProps {
+  section: SectionRef;
+  index: number;
+}
+
+const builders: Record<string, FC<{ id: number }>> = {
+  image_text_columns: ImageTextColumnsBuilder,
+  rich_text: RichTextBuilder,
+  activities: ActivityBuilder,
+};
+
+export async function SectionBuilder({ section, index }: SectionBuilderProps) {
+  if (!builders[section.collection]) return null;
+
+  const Builder = builders[section.collection];
+
+  return (
+    <Section
+      index={index}
+      contentSlot={<Builder id={Number(section.item)} />}
+    />
+  );
+}
+
 interface SectionsBuilderProps {
-  sections: { collection: string; item: string; id: number }[];
+  sections: SectionRef[];
 }
 
 export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
   return (
-    <div>
-      {sections.map((section, i) => {
-        let sectionBuilder;
-        switch (section.collection) {
-          case "image_text_columns":
-            sectionBuilder = (
-              <ImageTextColumnsBuilder
-                key={section.id}
-                id={Number(section.item)}
-              />
-            );
-            break;
-          case "rich_text":
-            sectionBuilder = (
-              <RichTextBuilder key={section.id} id={Number(section.item)} />
-            );
-            break;
-          case "activities":
-            sectionBuilder = (
-              <ActivityBuilder key={section.id} id={Number(section.item)} />
-            );
-            break;
-          default:
-            sectionBuilder = (
-              <div title={JSON.stringify(section, null, 2)}>
-                Unknown collection
-              </div>
-            );
-        }
-
-        const theme = i % 2 === 0 ? "mud" : "sun";
-        return (
-          <div key={section.id} className={`${theme}-theme`}>
-            <ThemeProvider key={section.id} theme={theme}>
-              {sectionBuilder}
-            </ThemeProvider>
-          </div>
-        );
-      })}
-    </div>
+    <Sections
+      sectionsSlot={sections.map((section, index) => (
+        <SectionBuilder key={section.id} index={index} section={section} />
+      ))}
+    />
   );
 }
