@@ -63,19 +63,26 @@ export const Parallax = () => {
 
   return (
     <ParallaxProvider>
-      <ParallaxBanner
-        layers={[
-          parallaxLayer1,
-          parallaxLayer2,
-          parallaxLayer3,
-          parallaxLayer4,
-          parallaxLayer5,
-          parallaxLayer6,
-          parallaxLayer7,
-          parallaxLayer8,
-        ]}
-        className="h-[100vh]"
-      />
+      {/* MOBILE */}
+      <div className="block md:hidden">
+        Placholder for mobile parallax alternative
+      </div>
+      {/* DESKTOP */}
+      <div className="hidden md:block">
+        <ParallaxBanner
+          layers={[
+            parallaxLayer1,
+            parallaxLayer2,
+            parallaxLayer3,
+            parallaxLayer4,
+            parallaxLayer5,
+            parallaxLayer6,
+            parallaxLayer7,
+            parallaxLayer8,
+          ]}
+          className="h-[100vh]"
+        />
+      </div>
     </ParallaxProvider>
   );
 };
