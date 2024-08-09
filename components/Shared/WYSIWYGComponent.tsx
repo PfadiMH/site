@@ -8,7 +8,7 @@ export interface WYSIWYGProps {
 export function WYSIWYG({ content, style }: WYSIWYGProps) {
   return (
     <div
-      className={style["wysiwyg"]}
+      className={`break-words ${style["wysiwyg"]}`}
       dangerouslySetInnerHTML={{ __html: content }}
     />
   );

@@ -11,5 +11,4 @@ export const poppins = Poppins({
   weight: ["400", "700"],
   variable: "--poppins",
   display: "swap",
-  subsets: ["latin"],
 });
