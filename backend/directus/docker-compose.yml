@@ -1,7 +1,7 @@
 version: "3"
 services:
   directus:
-    image: directus/directus:10.9.0
+    image: directus/directus
     ports:
       - 8055:8055
     hostname: pfadimh-site-directus
@@ -17,3 +17,8 @@ services:
       DB_CLIENT: "pg"
       DB_CONNECTION_STRING: ${DB_CONNECTION_STRING}
       WEBSOCKETS_ENABLED: "true"
+      GOOGLE_MAPS_API_KEY: "${GOOGLE_MAPS_API_KEY}"
+      CONTENT_SECURITY_POLICY_DIRECTIVE__CONNECT_SRC: "'self' https:"
+      CONTENT_SECURITY_POLICY_DIRECTIVES__SCRIPT_SRC: "'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com"
+      CONTENT_SECURITY_POLICY_DIRECTIVES__MEDIA_SRC: "'self' blob: data: https://maps.gstatic.com https://maps.googleapis.com"
+      CONTENT_SECURITY_POLICY_DIRECTIVES__IMG_SRC: "'self' blob: data: https://maps.gstatic.com https://maps.googleapis.com khmdb0.google.com khmdb0.googleapis.com khmdb1.google.com khmdb1.googleapis.com khm.google.com khm.googleapis.com khm0.google.com khm0.googleapis.com khm1.google.com khm1.googleapis.com khms0.google.com khms0.googleapis.com khms1.google.com khms1.googleapis.com khms2.google.com khms2.googleapis.com khms3.google.com khms3.googleapis.com streetviewpixels-pa.googleapis.com"
