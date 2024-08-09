@@ -2,6 +2,9 @@ import prisma from "@/lib/prisma";
 import { ImageTextColumnsBuilder } from "./ImageTextColumns/ImageTextColumns";
 import { RichTextBuilder } from "./RichText/RichText";
 import { ActivityBuilder } from "./Activity/Activity";
+import { FC } from "react";
+import Section from "./Section";
+import Sections from "./Sections";
 
 interface PageSectionsBuilderProps {
   pageId: number;
@@ -47,40 +50,46 @@ export async function GroupSectionsBuilder({
   );
 }
 
+interface SectionRef {
+  collection: string;
+  item: string;
+  id: number;
+}
+
+interface SectionBuilderProps {
+  section: SectionRef;
+  index: number;
+}
+
+const builders: Record<string, FC<{ id: number }>> = {
+  image_text_columns: ImageTextColumnsBuilder,
+  rich_text: RichTextBuilder,
+  activities: ActivityBuilder,
+};
+
+export async function SectionBuilder({ section, index }: SectionBuilderProps) {
+  if (!builders[section.collection]) return null;
+
+  const Builder = builders[section.collection];
+
+  return (
+    <Section
+      index={index}
+      contentSlot={<Builder id={Number(section.item)} />}
+    />
+  );
+}
+
 interface SectionsBuilderProps {
-  sections: { collection: string; item: string; id: number }[];
+  sections: SectionRef[];
 }
 
 export async function SectionsBuilder({ sections }: SectionsBuilderProps) {
   return (
-    <div className="theme-alternator">
-      {sections.map((section) => {
-        switch (section.collection) {
-          case "image_text_columns":
-            return (
-              <ImageTextColumnsBuilder
-                key={section.id}
-                id={Number(section.item)}
-              />
-            );
-
-          case "rich_text":
-            return (
-              <RichTextBuilder key={section.id} id={Number(section.item)} />
-            );
-          case "activities":
-            return (
-              <ActivityBuilder key={section.id} id={Number(section.item)} />
-            );
-
-          default:
-            return (
-              <div title={JSON.stringify(section, null, 2)}>
-                Unknown collection
-              </div>
-            );
-        }
-      })}
-    </div>
+    <Sections
+      sectionsSlot={sections.map((section, index) => (
+        <SectionBuilder key={section.id} index={index} section={section} />
+      ))}
+    />
   );
 }

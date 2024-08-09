@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
 import prisma, { Prisma } from "@/lib/prisma";
 import React from "react";
-import { NavbarBuilder } from "./Navbar/Navbar";
-import { FooterBuilder } from "./Footer/Footer";
 import { PageSectionsBuilder } from "./Sections/SectionsBuilder";
 import { Parallax } from "./Parallax/Parallax";
 
@@ -12,7 +10,7 @@ export type PageProps = Prisma.PagesGetPayload<{}> & {
 
 export async function Page({ sectionsSlot }: PageProps) {
   return (
-    <main>
+    <main className="relative text-center">
       <div>{sectionsSlot}</div>
     </main>
   );
