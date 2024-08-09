@@ -1,15 +1,31 @@
-import prisma from "@/lib/prisma";
+import prisma, { Prisma } from "@/lib/prisma";
+import { ImageComponent } from "./Shared/ImageComponent";
+import type { FileInfoProps } from "@/lib/getAssetInfo";
+import { getFileInfo } from "@/lib/getAssetInfo";
 
 export interface HeroBuilderProps {
   id: number;
 }
 
-export type HeroProps {
-  id: number;
-}
+export type HeroProps = Prisma.PagesGetPayload<{}> & {
+  heroBackgroundFileInfo: FileInfoProps | null;
+};
 
-function Hero() {
-  return <div className="w-full"></div>;
+function Hero({ heroBackgroundFileInfo }: HeroProps) {
+  return (
+    <div className="w-full h-32">
+      {heroBackgroundFileInfo && (
+        <ImageComponent
+          path={heroBackgroundFileInfo.path}
+          title={
+            heroBackgroundFileInfo.title ||
+            heroBackgroundFileInfo.filenameDisk ||
+            "image"
+          }
+        />
+      )}
+    </div>
+  );
 }
 
 export async function HeroBuilder({ id }: HeroBuilderProps) {
@@ -17,5 +33,8 @@ export async function HeroBuilder({ id }: HeroBuilderProps) {
     where: { id },
   });
 
-  return <Hero />;
+  const heroBackgroundFileInfo =
+    hero?.heroBackground && (await getFileInfo(hero.heroBackground));
+
+  return <Hero {...hero} heroBackgroundFileInfo={heroBackgroundFileInfo} />;
 }
