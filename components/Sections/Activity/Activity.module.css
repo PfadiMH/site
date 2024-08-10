@@ -1,7 +1,15 @@
-/* styles */
-.wysiwyg h1 {
-  @apply text-3xl font-bold;
+.wysiwyg {
 }
-.wysiwyg p {
-  @apply text-base;
+.wysiwyg h1 {
+}
+.wysiwyg ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+.wysiwyg ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.wysiwyg a {
+  text-decoration: underline;
 }
