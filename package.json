@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "bun gen-types && next build",
     "start": "next start",
     "lint": "next lint",
     "directus-snapshot": "directus schema snapshot backend/directus/snapshot.yml -y",
@@ -19,6 +19,7 @@
     "postgres": "^3.4.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-responsive": "^10.0.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

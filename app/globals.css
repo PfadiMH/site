@@ -6,16 +6,19 @@
   --sun-background: #ffaf1b;
   --sun-current: #210002;
   --sun-primary: #5c1715;
+  --sun-accent: #f7a000;
 
   --mud-background: #210002;
   --mud-current: #ffaf1b;
   --mud-primary: #5c1715;
+  --mud-accent: #390206;
 }
 
 .sun-theme {
   --color-background: var(--sun-background);
   --color-current: var(--sun-current);
   --color-primary: var(--sun-primary);
+  --color-accent: var(--sun-accent);
 
   color: var(--color-current);
 }
@@ -24,6 +27,7 @@
   --color-background: var(--mud-background);
   --color-current: var(--mud-current);
   --color-primary: var(--mud-primary);
+  --color-accent: var(--mud-accent);
 
   color: var(--color-current);
 }
