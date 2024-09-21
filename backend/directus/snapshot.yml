@@ -1,5 +1,5 @@
 version: 1
-directus: 10.9.0
+directus: 10.13.2
 vendor: postgres
 collections:
   - collection: activities
@@ -1705,6 +1705,26 @@ fields:
       is_nullable: true
       is_unique: false
       is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: directus_extensions
+    field: name
+    type: string
+    meta: null
+    schema:
+      name: name
+      table: directus_extensions
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
       is_generated: false
       generation_expression: null
       has_auto_increment: false
@@ -6097,10 +6117,14 @@ fields:
       translations: null
       validation:
         _and:
-          - path:
-              _nstarts_with: /
-          - path:
-              _nends_with: /
+          - _or:
+              - path:
+                  _eq: /
+              - _and:
+                  - path:
+                      _nstarts_with: /
+                  - path:
+                      _nends_with: /
       validation_message: null
       width: full
     schema:
@@ -6111,7 +6135,7 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
-      is_nullable: false
+      is_nullable: true
       is_unique: true
       is_primary_key: false
       is_generated: false
@@ -7733,6 +7757,7 @@ relations:
       one_allowed_collections:
         - activities
         - card_grids
+        - image_text_columns
         - location_grids
         - locations
         - news_lists
