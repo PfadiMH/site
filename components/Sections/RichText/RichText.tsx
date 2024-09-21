@@ -7,7 +7,7 @@ export type RichTextProps = Prisma.RichTextGetPayload<{}>;
 
 export function RichText({ content }: RichTextProps) {
   return (
-    <section className="bg-background">
+    <section className="m-20 bg-accent rounded-md ">
       <WYSIWYG style={style} content={content} />
     </section>
   );

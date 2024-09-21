@@ -15,7 +15,13 @@ function Section({ contentSlot, index }: SectionProps) {
   return (
     <div className={`${theme}-theme`}>
       {isSun && <PresunBreak />}
-      <ThemeProvider theme={theme}>{contentSlot}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <div className="w-full bg-background flex justify-center">
+          <div className="max-w-[1080px] w-full relative overflow-hidden">
+            {contentSlot}
+          </div>
+        </div>
+      </ThemeProvider>
       {isSun && <PremudBreak />}
     </div>
   );
