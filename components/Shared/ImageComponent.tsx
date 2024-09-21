@@ -1,17 +1,17 @@
 import Image from "next/image";
 
-export interface ImageComponentsProps {
+export interface ImageComponentProps {
   path: string;
-  title: string;
+  title: string | null;
 }
 
-export function ImageComponent({ path, title }: ImageComponentsProps) {
+export function ImageComponent({ path, title }: ImageComponentProps) {
   return (
     <Image
       src={path}
-      alt={title}
+      alt={title || path}
       fill={true}
-      className='object-cover !static'
+      className="object-cover !static"
     />
   );
 }
