@@ -17,9 +17,9 @@ export async function ImageTextColumns({
   leftImageInfo,
 }: ImageTextColumnsProps) {
   return (
-    <section className='bg-background p-4'>
+    <section className="bg-background p-4">
       {title && <h1>{title}</h1>}
-      <div className='flex flex-col md:flex-row items-stretch gap-4'>
+      <div className="flex flex-col md:flex-row md:justify-center items-stretch gap-4">
         {leftImageInfo && (
           <div
             className={`rounded-lg overflow-hidden md:basis-[30%] grow-${leftImageInfo.width}`}
@@ -30,7 +30,7 @@ export async function ImageTextColumns({
             />
           </div>
         )}
-        <div className='bg-accent rounded-lg p-4 shrink min-w-0'>
+        <div className="bg-accent rounded-lg p-4 shrink min-w-0">
           {content && <WYSIWYG content={content} style={style}></WYSIWYG>}
         </div>
         {rightImageInfo && (
