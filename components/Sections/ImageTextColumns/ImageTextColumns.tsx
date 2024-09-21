@@ -21,18 +21,18 @@ export async function ImageTextColumns({
       {title && <h1>{title}</h1>}
       <div className="flex flex-col md:flex-row md:justify-center items-stretch gap-4 font-poppins">
         {leftImageInfo && (
-          <div className={`rounded-lg overflow-hidden md:basis-[30%]`}>
+          <div className={`rounded-lg overflow-hidden md:basis-[30%] max-h-96`}>
             <ImageComponent
               path={leftImageInfo.path}
               title={leftImageInfo.title}
             />
           </div>
         )}
-        <div className="bg-accent rounded-lg p-4 shrink min-w-0">
+        <div className="bg-accent rounded-lg p-4 grow shrink min-w-0">
           {content && <WYSIWYG content={content} style={style} />}
         </div>
         {rightImageInfo && (
-          <div className={`rounded-lg overflow-hidden md:basis-[30%]`}>
+          <div className={`rounded-lg overflow-hidden md:basis-[30%] max-h-96`}>
             <ImageComponent
               path={rightImageInfo.path}
               title={rightImageInfo.title}
