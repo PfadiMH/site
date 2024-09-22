@@ -1,13 +1,13 @@
 import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
-import { FileInfoProps, getAssetPath, getFileInfo } from "@/lib/getAssetInfo";
+import { FileInfo, getAssetPath, getFileInfo } from "@/lib/getAssetInfo";
 import { ImageComponent } from "@/components/Shared/ImageComponent";
 import { WYSIWYG } from "@/components/Shared/WYSIWYGComponent";
 import style from "./ImageTextColumns.module.css";
 
 export type ImageTextColumnsProps = Prisma.ImageTextColumnsGetPayload<{}> & {
-  rightImageInfo: FileInfoProps | null;
-  leftImageInfo: FileInfoProps | null;
+  rightImageInfo: FileInfo | null;
+  leftImageInfo: FileInfo | null;
 };
 
 export async function ImageTextColumns({

@@ -9,11 +9,11 @@ export async function getAssetPath(id: string) {
   return `${env.DIRECTUS_URL}assets/${directusFile.id}/${directusFile.filenameDownload}`;
 }
 
-export type FileInfoProps = Prisma.DirectusFilesGetPayload<{}> & {
+export type FileInfo = Prisma.DirectusFilesGetPayload<{}> & {
   path: string;
 };
 
-export async function getFileInfo(id: string): Promise<FileInfoProps> {
+export async function getFileInfo(id: string): Promise<FileInfo> {
   const directusFile = await prisma.directusFiles.findFirst({
     where: { id },
   });
