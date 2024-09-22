@@ -1,0 +1,11 @@
+.wysiwyg ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+.wysiwyg ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.wysiwyg a {
+  text-decoration: underline;
+}

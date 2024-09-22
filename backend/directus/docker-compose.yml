@@ -1,7 +1,7 @@
 version: "3"
 services:
   directus:
-    image: directus/directus:10.9.0
+    image: directus/directus:11.1
     ports:
       - 8055:8055
     hostname: pfadimh-site-directus
