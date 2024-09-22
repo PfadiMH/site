@@ -4,6 +4,7 @@ import { FileInfo, getAssetPath, getFileInfo } from "@/lib/getAssetInfo";
 import { ImageComponent } from "@/components/Shared/ImageComponent";
 import { WYSIWYG } from "@/components/Shared/WYSIWYGComponent";
 import style from "./ImageTextColumns.module.css";
+import { DirectusImageComponent } from "@/components/Shared/DirectusImageComponent";
 
 export type ImageTextColumnsProps = Prisma.ImageTextColumnsGetPayload<{}> & {
   rightImageInfo: FileInfo | null;
@@ -22,10 +23,7 @@ export async function ImageTextColumns({
       <div className="flex flex-col md:flex-row md:justify-center items-stretch gap-4 font-poppins">
         {leftImageInfo && (
           <div className={`rounded-lg overflow-hidden md:basis-[30%] max-h-96`}>
-            <ImageComponent
-              path={leftImageInfo.path}
-              title={leftImageInfo.title}
-            />
+            <DirectusImageComponent {...leftImageInfo} />
           </div>
         )}
         <div className="bg-accent rounded-lg p-4 grow shrink min-w-0">
@@ -33,10 +31,7 @@ export async function ImageTextColumns({
         </div>
         {rightImageInfo && (
           <div className={`rounded-lg overflow-hidden md:basis-[30%] max-h-96`}>
-            <ImageComponent
-              path={rightImageInfo.path}
-              title={rightImageInfo.title}
-            />
+            <DirectusImageComponent {...rightImageInfo} />
           </div>
         )}
       </div>
