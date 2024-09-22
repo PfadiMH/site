@@ -14,7 +14,7 @@
   "dependencies": {
     "@prisma/client": "5.9.1",
     "clsx": "^2.1.1",
-    "directus": "^10.9.0",
+    "directus": "11.1.0",
     "next": "14.1.1",
     "postgres": "^3.4.3",
     "react": "^18",
