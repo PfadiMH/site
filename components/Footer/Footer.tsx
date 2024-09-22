@@ -1,26 +1,17 @@
 import React from "react";
-import { FooterColumnsBuilder } from "./FooterColumn";
+import { FooterColumnsBuilder } from "./FooterColumns";
 import prisma, { Prisma } from "@/lib/prisma";
-import Image from "next/image";
-import { ImageComponent } from "../Shared/ImageComponent";
-import { getAssetPath } from "@/lib/getAssetInfo";
-import { WYSIWYG } from "../Shared/WYSIWYGComponent";
-import style from "./Footer.module.css";
 
 export type FooterProps = Prisma.FooterGetPayload<{}> & {
   footerColumnsSlot: React.ReactNode;
 };
 
-export async function Footer({
-  logo,
-  content,
-  footerColumnsSlot,
-}: FooterProps) {
+export async function Footer({ footerColumnsSlot }: FooterProps) {
   return (
     <footer>
-      <div>{footerColumnsSlot}</div>
-      {logo && <ImageComponent path={await getAssetPath(logo)} title="Logo" />}
-      {content && <WYSIWYG style={style} content={content} />}
+      <div className="flex justify-around bg-current gap-5 flex-wrap lg:flex-nowrap">
+        {footerColumnsSlot}
+      </div>
     </footer>
   );
 }
