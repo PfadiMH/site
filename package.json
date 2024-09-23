@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "bun gen-types && next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "directus-snapshot": "directus schema snapshot backend/directus/snapshot.yml -y",

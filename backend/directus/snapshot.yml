@@ -11,7 +11,7 @@ collections:
       collapse: open
       collection: activities
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -35,7 +35,7 @@ collections:
       collapse: open
       collection: card_grids
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -83,7 +83,7 @@ collections:
       collapse: open
       collection: footer
       color: null
-      display_template: '{{content}}'
+      display_template: "{{content}}"
       group: null
       hidden: false
       icon: null
@@ -131,7 +131,7 @@ collections:
       collapse: open
       collection: groups
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -179,7 +179,7 @@ collections:
       collapse: open
       collection: image_text_columns
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -203,7 +203,7 @@ collections:
       collapse: open
       collection: location_grids
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -251,7 +251,7 @@ collections:
       collapse: open
       collection: locations
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -275,7 +275,7 @@ collections:
       collapse: open
       collection: navbar
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -323,7 +323,7 @@ collections:
       collapse: open
       collection: navbar_dropdowns
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: navbar
       hidden: false
       icon: null
@@ -347,7 +347,7 @@ collections:
       collapse: open
       collection: navbar_items
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: navbar
       hidden: false
       icon: null
@@ -371,7 +371,7 @@ collections:
       collapse: open
       collection: news
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -395,7 +395,7 @@ collections:
       collapse: open
       collection: news_lists
       color: null
-      display_template: '{{news.news_id.title}}'
+      display_template: "{{news.news_id.title}}"
       group: sections
       hidden: false
       icon: null
@@ -443,7 +443,7 @@ collections:
       collapse: open
       collection: pages
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -491,7 +491,7 @@ collections:
       collapse: open
       collection: rich_text
       color: null
-      display_template: '{{content}}'
+      display_template: "{{content}}"
       group: sections
       hidden: false
       icon: null
@@ -646,7 +646,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -726,7 +726,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -1114,7 +1114,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -1194,7 +1194,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -1412,7 +1412,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -1492,7 +1492,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -1839,7 +1839,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -1997,7 +1997,7 @@ fields:
       note: null
       options:
         enableSelect: false
-        template: '{{title}}'
+        template: "{{title}}"
       readonly: false
       required: false
       sort: 4
@@ -2097,7 +2097,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -2177,7 +2177,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -2512,7 +2512,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -2592,7 +2592,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 6
@@ -3079,7 +3079,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -3159,7 +3159,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -3431,7 +3431,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -3511,7 +3511,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -3881,7 +3881,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -3961,7 +3961,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -4164,7 +4164,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -4238,7 +4238,7 @@ fields:
       conditions: null
       display: null
       display_options:
-        template: '{{item:navbar_dropdowns.title}}{{item:navbar_items.title}}'
+        template: "{{item:navbar_dropdowns.title}}{{item:navbar_items.title}}"
       field: components
       group: null
       hidden: false
@@ -4537,7 +4537,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -4617,7 +4617,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -4838,7 +4838,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -4918,7 +4918,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -5177,7 +5177,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -5257,7 +5257,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -5491,7 +5491,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -5571,7 +5571,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -5930,7 +5930,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -6010,7 +6010,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -6538,7 +6538,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -6618,7 +6618,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4

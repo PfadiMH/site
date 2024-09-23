@@ -50,7 +50,13 @@ Create a random new Collection to fix the No Permission error. You can delete it
 
 1. In Directus, create a new directus token under Users -> Admin User -> Token.
 2. Copy the token and add it to the `.env` file as `DIRECTUS_TOKEN`.
-3. To start the frontend, run the following command in the terminal:
+3. Generate types for the schema (you might have to reload the window after):
+
+   ```bash
+   bun run prisma generate
+   ```
+
+4. To start the frontend, run the following command in the terminal:
 
    ```bash
    bun dev --turbo
