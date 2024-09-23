@@ -1,5 +1,5 @@
 version: 1
-directus: 11.1.0
+directus: 10.9.0
 vendor: postgres
 collections:
   - collection: activities
@@ -1703,126 +1703,6 @@ fields:
       numeric_precision: 32
       numeric_scale: 0
       is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_extensions
-    field: name
-    type: string
-    meta: null
-    schema:
-      name: name
-      table: directus_extensions
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_permissions
-    field: role
-    type: uuid
-    meta: null
-    schema:
-      name: role
-      table: directus_permissions
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_roles
-      foreign_key_column: id
-  - collection: directus_roles
-    field: ip_access
-    type: text
-    meta: null
-    schema:
-      name: ip_access
-      table: directus_roles
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: enforce_tfa
-    type: boolean
-    meta: null
-    schema:
-      name: enforce_tfa
-      table: directus_roles
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: admin_access
-    type: boolean
-    meta: null
-    schema:
-      name: admin_access
-      table: directus_roles
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: app_access
-    type: boolean
-    meta: null
-    schema:
-      name: app_access
-      table: directus_roles
-      data_type: boolean
-      default_value: true
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
       is_unique: false
       is_primary_key: false
       is_generated: false
@@ -6217,14 +6097,10 @@ fields:
       translations: null
       validation:
         _and:
-          - _or:
-              - path:
-                  _eq: /
-              - _and:
-                  - path:
-                      _nstarts_with: /
-                  - path:
-                      _nends_with: /
+          - path:
+              _nstarts_with: /
+          - path:
+              _nends_with: /
       validation_message: null
       width: full
     schema:
@@ -6235,7 +6111,7 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
-      is_nullable: true
+      is_nullable: false
       is_unique: true
       is_primary_key: false
       is_generated: false
@@ -7034,18 +6910,6 @@ relations:
       foreign_key_table: card_grids
       foreign_key_column: id
       constraint_name: cards_fk_card_grids_foreign
-      on_update: NO ACTION
-      on_delete: CASCADE
-  - collection: directus_permissions
-    field: role
-    related_collection: directus_roles
-    meta: null
-    schema:
-      table: directus_permissions
-      column: role
-      foreign_key_table: directus_roles
-      foreign_key_column: id
-      constraint_name: directus_permissions_role_foreign
       on_update: NO ACTION
       on_delete: CASCADE
   - collection: directus_users
@@ -7869,7 +7733,6 @@ relations:
       one_allowed_collections:
         - activities
         - card_grids
-        - image_text_columns
         - location_grids
         - locations
         - news_lists
