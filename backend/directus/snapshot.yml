@@ -1,5 +1,5 @@
 version: 1
-directus: 11.1.0
+directus: 10.9.0
 vendor: postgres
 collections:
   - collection: activities
@@ -11,7 +11,7 @@ collections:
       collapse: open
       collection: activities
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -35,7 +35,7 @@ collections:
       collapse: open
       collection: card_grids
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -83,7 +83,7 @@ collections:
       collapse: open
       collection: footer
       color: null
-      display_template: '{{content}}'
+      display_template: "{{content}}"
       group: null
       hidden: false
       icon: null
@@ -131,7 +131,7 @@ collections:
       collapse: open
       collection: groups
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -179,7 +179,7 @@ collections:
       collapse: open
       collection: image_text_columns
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -203,7 +203,7 @@ collections:
       collapse: open
       collection: location_grids
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: sections
       hidden: false
       icon: null
@@ -251,7 +251,7 @@ collections:
       collapse: open
       collection: locations
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -275,7 +275,7 @@ collections:
       collapse: open
       collection: navbar
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -323,7 +323,7 @@ collections:
       collapse: open
       collection: navbar_dropdowns
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: navbar
       hidden: false
       icon: null
@@ -347,7 +347,7 @@ collections:
       collapse: open
       collection: navbar_items
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: navbar
       hidden: false
       icon: null
@@ -371,7 +371,7 @@ collections:
       collapse: open
       collection: news
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -395,7 +395,7 @@ collections:
       collapse: open
       collection: news_lists
       color: null
-      display_template: '{{news.news_id.title}}'
+      display_template: "{{news.news_id.title}}"
       group: sections
       hidden: false
       icon: null
@@ -443,7 +443,7 @@ collections:
       collapse: open
       collection: pages
       color: null
-      display_template: '{{title}}'
+      display_template: "{{title}}"
       group: null
       hidden: false
       icon: null
@@ -491,7 +491,7 @@ collections:
       collapse: open
       collection: rich_text
       color: null
-      display_template: '{{content}}'
+      display_template: "{{content}}"
       group: sections
       hidden: false
       icon: null
@@ -646,7 +646,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -726,7 +726,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -1114,7 +1114,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -1194,7 +1194,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -1412,7 +1412,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -1492,7 +1492,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -1710,126 +1710,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: directus_extensions
-    field: name
-    type: string
-    meta: null
-    schema:
-      name: name
-      table: directus_extensions
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_permissions
-    field: role
-    type: uuid
-    meta: null
-    schema:
-      name: role
-      table: directus_permissions
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_roles
-      foreign_key_column: id
-  - collection: directus_roles
-    field: ip_access
-    type: text
-    meta: null
-    schema:
-      name: ip_access
-      table: directus_roles
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: enforce_tfa
-    type: boolean
-    meta: null
-    schema:
-      name: enforce_tfa
-      table: directus_roles
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: admin_access
-    type: boolean
-    meta: null
-    schema:
-      name: admin_access
-      table: directus_roles
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: app_access
-    type: boolean
-    meta: null
-    schema:
-      name: app_access
-      table: directus_roles
-      data_type: boolean
-      default_value: true
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
   - collection: directus_users
     field: group
     type: integer
@@ -1959,7 +1839,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -2117,7 +1997,7 @@ fields:
       note: null
       options:
         enableSelect: false
-        template: '{{title}}'
+        template: "{{title}}"
       readonly: false
       required: false
       sort: 4
@@ -2217,7 +2097,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -2297,7 +2177,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -2632,7 +2512,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -2712,7 +2592,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 6
@@ -3199,7 +3079,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -3279,7 +3159,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -3551,7 +3431,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -3631,7 +3511,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -4001,7 +3881,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -4081,7 +3961,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -4284,7 +4164,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -4358,7 +4238,7 @@ fields:
       conditions: null
       display: null
       display_options:
-        template: '{{item:navbar_dropdowns.title}}{{item:navbar_items.title}}'
+        template: "{{item:navbar_dropdowns.title}}{{item:navbar_items.title}}"
       field: components
       group: null
       hidden: false
@@ -4657,7 +4537,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -4737,7 +4617,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -4958,7 +4838,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -5038,7 +4918,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -5297,7 +5177,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -5377,7 +5257,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -5611,7 +5491,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -5691,7 +5571,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -6050,7 +5930,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 3
@@ -6130,7 +6010,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 5
@@ -6217,14 +6097,10 @@ fields:
       translations: null
       validation:
         _and:
-          - _or:
-              - path:
-                  _eq: /
-              - _and:
-                  - path:
-                      _nstarts_with: /
-                  - path:
-                      _nends_with: /
+          - path:
+              _nstarts_with: /
+          - path:
+              _nends_with: /
       validation_message: null
       width: full
     schema:
@@ -6235,7 +6111,7 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
-      is_nullable: true
+      is_nullable: false
       is_unique: true
       is_primary_key: false
       is_generated: false
@@ -6662,7 +6538,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 2
@@ -6742,7 +6618,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 4
@@ -7034,18 +6910,6 @@ relations:
       foreign_key_table: card_grids
       foreign_key_column: id
       constraint_name: cards_fk_card_grids_foreign
-      on_update: NO ACTION
-      on_delete: CASCADE
-  - collection: directus_permissions
-    field: role
-    related_collection: directus_roles
-    meta: null
-    schema:
-      table: directus_permissions
-      column: role
-      foreign_key_table: directus_roles
-      foreign_key_column: id
-      constraint_name: directus_permissions_role_foreign
       on_update: NO ACTION
       on_delete: CASCADE
   - collection: directus_users
@@ -7869,7 +7733,6 @@ relations:
       one_allowed_collections:
         - activities
         - card_grids
-        - image_text_columns
         - location_grids
         - locations
         - news_lists

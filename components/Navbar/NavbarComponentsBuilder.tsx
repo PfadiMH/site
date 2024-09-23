@@ -2,32 +2,41 @@ import React from "react";
 import prisma, { Prisma } from "@/lib/prisma";
 import { NavbarItemBuilder } from "./NavbarItem";
 import { NavbarDropdownBuilder } from "./NavbarDropdownBuilder";
+import { ImageComponent } from "../Shared/ImageComponent";
 import { getAssetPath } from "@/lib/getAssetInfo";
-import { NavbarComponents } from "./NavbarComponents";
+import { NavbarComponents } from "./NavbarComponentsComponent";
+
 type NavbarComponentsBuilderProps = Prisma.NavbarGetPayload<{}>;
 type NavbarComponentBuilderProps = Prisma.NavbarComponentsGetPayload<{}>;
 
 export async function NavbarComponentsBuilder({
+  dateUpdated,
   logo,
-  ...navbar
+  id,
+  userUpdated,
 }: NavbarComponentsBuilderProps) {
   const navbarComponents = await prisma.navbarComponents.findMany({
     orderBy: {
       sort: "asc",
     },
   });
-  const navbarBuiltComponents = navbarComponents.map((navbarComponent) => (
-    <NavbarComponentBuilder {...navbarComponent} />
-  ));
-
-  const logoPath = logo && (await getAssetPath(logo));
+  const navbarBuiltComponents = navbarComponents.map(NavbarComponentBuilder);
+  let navbarInfo: NavbarComponentsBuilderProps = {
+    dateUpdated,
+    id,
+    logo,
+    userUpdated,
+  };
+  if (logo)
+    navbarInfo = {
+      dateUpdated,
+      logo: await getAssetPath(logo),
+      id,
+      userUpdated,
+    };
 
   return (
-    <NavbarComponents
-      componentsSlot={navbarBuiltComponents}
-      {...navbar}
-      logo={logoPath}
-    />
+    <NavbarComponents componentsSlot={navbarBuiltComponents} {...navbarInfo} />
   );
 }
 
