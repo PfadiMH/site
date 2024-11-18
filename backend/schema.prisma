@@ -67,7 +67,7 @@ model DirectusActivity {
   user              String?             @db.Uuid
   timestamp         DateTime            @default(now()) @db.Timestamptz(6)
   ip                String?             @db.VarChar(50)
-  userAgent         String?             @map("user_agent") @db.VarChar(255)
+  userAgent         String?             @map("user_agent")
   collection        String              @db.VarChar(64)
   item              String              @db.VarChar(255)
   comment           String?
@@ -79,7 +79,7 @@ model DirectusActivity {
 
 model DirectusCollections {
   collection               String                @id @db.VarChar(64)
-  icon                     String?               @db.VarChar(30)
+  icon                     String?               @db.VarChar(64)
   note                     String?
   displayTemplate          String?               @map("display_template") @db.VarChar(255)
   hidden                   Boolean               @default(false)
@@ -100,6 +100,7 @@ model DirectusCollections {
   versioning               Boolean               @default(false)
   directusCollections      DirectusCollections?  @relation("directus_collectionsTodirectus_collections", fields: [group], references: [collection], onDelete: NoAction, onUpdate: NoAction, map: "directus_collections_group_foreign")
   otherDirectusCollections DirectusCollections[] @relation("directus_collectionsTodirectus_collections")
+  directusComments         DirectusComments[]
   directusShares           DirectusShares[]
   directusVersions         DirectusVersions[]
 
@@ -109,7 +110,7 @@ model DirectusCollections {
 model DirectusDashboards {
   id             String           @id @db.Uuid
   name           String           @db.VarChar(255)
-  icon           String           @default("dashboard") @db.VarChar(30)
+  icon           String           @default("dashboard") @db.VarChar(64)
   note           String?
   dateCreated    DateTime?        @default(now()) @map("date_created") @db.Timestamptz(6)
   userCreated    String?          @map("user_created") @db.Uuid
@@ -121,8 +122,11 @@ model DirectusDashboards {
 }
 
 model DirectusExtensions {
-  name    String  @id @db.VarChar(255)
   enabled Boolean @default(true)
+  id      String  @id @db.Uuid
+  folder  String  @db.VarChar(255)
+  source  String  @db.VarChar(255)
+  bundle  String? @db.Uuid
 
   @@map("directus_extensions")
 }
@@ -160,7 +164,7 @@ model DirectusFiles {
   type                                                            String?            @db.VarChar(255)
   folder                                                          String?            @db.Uuid
   uploadedBy                                                      String?            @map("uploaded_by") @db.Uuid
-  uploadedOn                                                      DateTime           @default(now()) @map("uploaded_on") @db.Timestamptz(6)
+  createdOn                                                       DateTime           @default(now()) @map("created_on") @db.Timestamptz(6)
   modifiedBy                                                      String?            @map("modified_by") @db.Uuid
   modifiedOn                                                      DateTime           @default(now()) @map("modified_on") @db.Timestamptz(6)
   charset                                                         String?            @db.VarChar(50)
@@ -175,6 +179,9 @@ model DirectusFiles {
   metadata                                                        Json?              @db.Json
   focalPointX                                                     Int?               @map("focal_point_x")
   focalPointY                                                     Int?               @map("focal_point_y")
+  tusId                                                           String?            @map("tus_id") @db.VarChar(64)
+  tusData                                                         Json?              @map("tus_data") @db.Json
+  uploadedOn                                                      DateTime?          @map("uploaded_on") @db.Timestamptz(6)
   directusFolders                                                 DirectusFolders?   @relation(fields: [folder], references: [id], onUpdate: NoAction, map: "directus_files_folder_foreign")
   directusUsersDirectusFilesModifiedByTodirectusUsers             DirectusUsers?     @relation("directus_files_modified_byTodirectus_users", fields: [modifiedBy], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_files_modified_by_foreign")
   directusUsersDirectusFilesUploadedByTodirectusUsers             DirectusUsers?     @relation("directus_files_uploaded_byTodirectus_users", fields: [uploadedBy], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_files_uploaded_by_foreign")
@@ -196,7 +203,7 @@ model DirectusFiles {
 model DirectusFlows {
   id                 String               @id @db.Uuid
   name               String               @db.VarChar(255)
-  icon               String?              @db.VarChar(30)
+  icon               String?              @db.VarChar(64)
   color              String?              @db.VarChar(255)
   description        String?
   status             String               @default("active") @db.VarChar(255)
@@ -208,6 +215,7 @@ model DirectusFlows {
   userCreated        String?              @map("user_created") @db.Uuid
   directusUsers      DirectusUsers?       @relation(fields: [userCreated], references: [id], onUpdate: NoAction, map: "directus_flows_user_created_foreign")
   directusOperations DirectusOperations[]
+  directusWebhooks   DirectusWebhooks[]
 
   @@map("directus_flows")
 }
@@ -275,7 +283,7 @@ model DirectusPanels {
   id                 String             @id @db.Uuid
   dashboard          String             @db.Uuid
   name               String?            @db.VarChar(255)
-  icon               String?            @db.VarChar(30)
+  icon               String?            @db.VarChar(64)
   color              String?            @db.VarChar(10)
   showHeader         Boolean            @default(false) @map("show_header")
   note               String?
@@ -294,15 +302,15 @@ model DirectusPanels {
 }
 
 model DirectusPermissions {
-  id            Int            @id @default(autoincrement())
-  role          String?        @db.Uuid
-  collection    String         @db.VarChar(64)
-  action        String         @db.VarChar(10)
-  permissions   Json?          @db.Json
-  validation    Json?          @db.Json
-  presets       Json?          @db.Json
-  fields        String?
-  directusRoles DirectusRoles? @relation(fields: [role], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_permissions_role_foreign")
+  id               Int              @id @default(autoincrement())
+  collection       String           @db.VarChar(64)
+  action           String           @db.VarChar(10)
+  permissions      Json?            @db.Json
+  validation       Json?            @db.Json
+  presets          Json?            @db.Json
+  fields           String?
+  policy           String           @db.Uuid
+  directusPolicies DirectusPolicies @relation(fields: [policy], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_permissions_policy_foreign")
 
   @@map("directus_permissions")
 }
@@ -319,7 +327,7 @@ model DirectusPresets {
   layoutOptions   Json?          @map("layout_options") @db.Json
   refreshInterval Int?           @map("refresh_interval")
   filter          Json?          @db.Json
-  icon            String?        @default("bookmark") @db.VarChar(30)
+  icon            String?        @default("bookmark") @db.VarChar(64)
   color           String?        @db.VarChar(255)
   directusRoles   DirectusRoles? @relation(fields: [role], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_presets_role_foreign")
   directusUsers   DirectusUsers? @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_presets_user_foreign")
@@ -360,18 +368,18 @@ model DirectusRevisions {
 }
 
 model DirectusRoles {
-  id                  String                @id @db.Uuid
-  name                String                @db.VarChar(100)
-  icon                String                @default("supervised_user_circle") @db.VarChar(30)
-  description         String?
-  ipAccess            String?               @map("ip_access")
-  enforceTfa          Boolean               @default(false) @map("enforce_tfa")
-  adminAccess         Boolean               @default(false) @map("admin_access")
-  appAccess           Boolean               @default(true) @map("app_access")
-  directusPermissions DirectusPermissions[]
-  directusPresets     DirectusPresets[]
-  directusShares      DirectusShares[]
-  directusUsers       DirectusUsers[]
+  id                 String             @id @db.Uuid
+  name               String             @db.VarChar(100)
+  icon               String             @default("supervised_user_circle") @db.VarChar(64)
+  description        String?
+  parent             String?            @db.Uuid
+  directusAccess     DirectusAccess[]
+  directusPresets    DirectusPresets[]
+  directusRoles      DirectusRoles?     @relation("directus_rolesTodirectus_roles", fields: [parent], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_roles_parent_foreign")
+  otherDirectusRoles DirectusRoles[]    @relation("directus_rolesTodirectus_roles")
+  directusSettings   DirectusSettings[]
+  directusShares     DirectusShares[]
+  directusUsers      DirectusUsers[]
 
   @@map("directus_roles")
 }
@@ -381,9 +389,10 @@ model DirectusSessions {
   user           String?         @db.Uuid
   expires        DateTime        @db.Timestamptz(6)
   ip             String?         @db.VarChar(255)
-  userAgent      String?         @map("user_agent") @db.VarChar(255)
+  userAgent      String?         @map("user_agent")
   share          String?         @db.Uuid
   origin         String?         @db.VarChar(255)
+  nextToken      String?         @map("next_token") @db.VarChar(64)
   directusShares DirectusShares? @relation(fields: [share], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_sessions_share_foreign")
   directusUsers  DirectusUsers?  @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_sessions_user_foreign")
 
@@ -417,10 +426,18 @@ model DirectusSettings {
   themeLightOverrides                                          Json?            @map("theme_light_overrides") @db.Json
   defaultThemeDark                                             String?          @map("default_theme_dark") @db.VarChar(255)
   themeDarkOverrides                                           Json?            @map("theme_dark_overrides") @db.Json
+  reportErrorUrl                                               String?          @map("report_error_url") @db.VarChar(255)
+  reportBugUrl                                                 String?          @map("report_bug_url") @db.VarChar(255)
+  reportFeatureUrl                                             String?          @map("report_feature_url") @db.VarChar(255)
+  publicRegistration                                           Boolean          @default(false) @map("public_registration")
+  publicRegistrationVerifyEmail                                Boolean          @default(true) @map("public_registration_verify_email")
+  publicRegistrationRole                                       String?          @map("public_registration_role") @db.Uuid
+  publicRegistrationEmailFilter                                Json?            @map("public_registration_email_filter") @db.Json
   directusFilesDirectusSettingsProjectLogoTodirectusFiles      DirectusFiles?   @relation("directus_settings_project_logoTodirectus_files", fields: [projectLogo], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_settings_project_logo_foreign")
   directusFilesDirectusSettingsPublicBackgroundTodirectusFiles DirectusFiles?   @relation("directus_settings_public_backgroundTodirectus_files", fields: [publicBackground], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_settings_public_background_foreign")
   directusFilesDirectusSettingsPublicFaviconTodirectusFiles    DirectusFiles?   @relation("directus_settings_public_faviconTodirectus_files", fields: [publicFavicon], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_settings_public_favicon_foreign")
   directusFilesDirectusSettingsPublicForegroundTodirectusFiles DirectusFiles?   @relation("directus_settings_public_foregroundTodirectus_files", fields: [publicForeground], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_settings_public_foreground_foreign")
+  directusRoles                                                DirectusRoles?   @relation(fields: [publicRegistrationRole], references: [id], onUpdate: NoAction, map: "directus_settings_public_registration_role_foreign")
   directusFolders                                              DirectusFolders? @relation(fields: [storageDefaultFolder], references: [id], onUpdate: NoAction, map: "directus_settings_storage_default_folder_foreign")
 
   @@map("directus_settings")
@@ -491,6 +508,9 @@ model DirectusUsers {
   cardGridsCardGridsUserUpdatedTodirectusUsers                       CardGrids[]             @relation("card_grids_user_updatedTodirectus_users")
   cardsCardsUserCreatedTodirectusUsers                               Cards[]                 @relation("cards_user_createdTodirectus_users")
   cardsCardsUserUpdatedTodirectusUsers                               Cards[]                 @relation("cards_user_updatedTodirectus_users")
+  directusAccess                                                     DirectusAccess[]
+  directusCommentsDirectusCommentsUserCreatedTodirectusUsers         DirectusComments[]      @relation("directus_comments_user_createdTodirectus_users")
+  directusCommentsDirectusCommentsUserUpdatedTodirectusUsers         DirectusComments[]      @relation("directus_comments_user_updatedTodirectus_users")
   directusDashboards                                                 DirectusDashboards[]
   directusFilesDirectusFilesModifiedByTodirectusUsers                DirectusFiles[]         @relation("directus_files_modified_byTodirectus_users")
   directusFilesDirectusFilesUploadedByTodirectusUsers                DirectusFiles[]         @relation("directus_files_uploaded_byTodirectus_users")
@@ -545,6 +565,7 @@ model DirectusVersions {
   dateUpdated                                             DateTime?           @default(now()) @map("date_updated") @db.Timestamptz(6)
   userCreated                                             String?             @map("user_created") @db.Uuid
   userUpdated                                             String?             @map("user_updated") @db.Uuid
+  delta                                                   Json?               @db.Json
   directusRevisions                                       DirectusRevisions[]
   directusCollections                                     DirectusCollections @relation(fields: [collection], references: [collection], onDelete: Cascade, onUpdate: NoAction, map: "directus_versions_collection_foreign")
   directusUsersDirectusVersionsUserCreatedTodirectusUsers DirectusUsers?      @relation("directus_versions_user_createdTodirectus_users", fields: [userCreated], references: [id], onUpdate: NoAction, map: "directus_versions_user_created_foreign")
@@ -554,15 +575,18 @@ model DirectusVersions {
 }
 
 model DirectusWebhooks {
-  id          Int     @id @default(autoincrement())
-  name        String  @db.VarChar(255)
-  method      String  @default("POST") @db.VarChar(10)
-  url         String  @db.VarChar(255)
-  status      String  @default("active") @db.VarChar(10)
-  data        Boolean @default(true)
-  actions     String  @db.VarChar(100)
-  collections String  @db.VarChar(255)
-  headers     Json?   @db.Json
+  id                         Int            @id @default(autoincrement())
+  name                       String         @db.VarChar(255)
+  method                     String         @default("POST") @db.VarChar(10)
+  url                        String         @db.VarChar(255)
+  status                     String         @default("active") @db.VarChar(10)
+  data                       Boolean        @default(true)
+  actions                    String         @db.VarChar(100)
+  collections                String         @db.VarChar(255)
+  headers                    Json?          @db.Json
+  wasActiveBeforeDeprecation Boolean        @default(false) @map("was_active_before_deprecation")
+  migratedFlow               String?        @map("migrated_flow") @db.Uuid
+  directusFlows              DirectusFlows? @relation(fields: [migratedFlow], references: [id], onUpdate: NoAction, map: "directus_webhooks_migrated_flow_foreign")
 
   @@map("directus_webhooks")
 }
@@ -825,4 +849,48 @@ model RichText {
   directusUsersRichTextUserUpdatedTodirectusUsers DirectusUsers? @relation("rich_text_user_updatedTodirectus_users", fields: [userUpdated], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "rich_text_user_updated_foreign")
 
   @@map("rich_text")
+}
+
+model DirectusAccess {
+  id               String           @id @db.Uuid
+  role             String?          @db.Uuid
+  user             String?          @db.Uuid
+  policy           String           @db.Uuid
+  sort             Int?
+  directusPolicies DirectusPolicies @relation(fields: [policy], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_access_policy_foreign")
+  directusRoles    DirectusRoles?   @relation(fields: [role], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_access_role_foreign")
+  directusUsers    DirectusUsers?   @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directus_access_user_foreign")
+
+  @@map("directus_access")
+}
+
+model DirectusComments {
+  id                                                      String              @id @db.Uuid
+  collection                                              String              @db.VarChar(64)
+  item                                                    String              @db.VarChar(255)
+  comment                                                 String
+  dateCreated                                             DateTime?           @default(now()) @map("date_created") @db.Timestamptz(6)
+  dateUpdated                                             DateTime?           @default(now()) @map("date_updated") @db.Timestamptz(6)
+  userCreated                                             String?             @map("user_created") @db.Uuid
+  userUpdated                                             String?             @map("user_updated") @db.Uuid
+  directusCollections                                     DirectusCollections @relation(fields: [collection], references: [collection], onDelete: Cascade, onUpdate: NoAction, map: "directus_comments_collection_foreign")
+  directusUsersDirectusCommentsUserCreatedTodirectusUsers DirectusUsers?      @relation("directus_comments_user_createdTodirectus_users", fields: [userCreated], references: [id], onUpdate: NoAction, map: "directus_comments_user_created_foreign")
+  directusUsersDirectusCommentsUserUpdatedTodirectusUsers DirectusUsers?      @relation("directus_comments_user_updatedTodirectus_users", fields: [userUpdated], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directus_comments_user_updated_foreign")
+
+  @@map("directus_comments")
+}
+
+model DirectusPolicies {
+  id                  String                @id @db.Uuid
+  name                String                @db.VarChar(100)
+  icon                String                @default("badge") @db.VarChar(64)
+  description         String?
+  ipAccess            String?               @map("ip_access")
+  enforceTfa          Boolean               @default(false) @map("enforce_tfa")
+  adminAccess         Boolean               @default(false) @map("admin_access")
+  appAccess           Boolean               @default(false) @map("app_access")
+  directusAccess      DirectusAccess[]
+  directusPermissions DirectusPermissions[]
+
+  @@map("directus_policies")
 }

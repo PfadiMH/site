@@ -1,5 +1,5 @@
 version: 1
-directus: 11.1.0
+directus: 11.2.1
 vendor: postgres
 collections:
   - collection: activities
@@ -561,6 +561,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -576,21 +577,21 @@ fields:
       display: labels
       display_options:
         choices:
-          - text: $t:published
-            value: published
+          - background: var(--theme--primary-background)
             color: var(--theme--primary)
             foreground: var(--theme--primary)
-            background: var(--theme--primary-background)
-          - text: $t:draft
-            value: draft
+            text: $t:published
+            value: published
+          - background: var(--theme--background-normal)
             color: var(--theme--foreground)
             foreground: var(--theme--foreground)
-            background: var(--theme--background-normal)
-          - text: $t:archived
-            value: archived
+            text: $t:draft
+            value: draft
+          - background: var(--theme--warning-background)
             color: var(--theme--warning)
             foreground: var(--theme--warning)
-            background: var(--theme--warning-background)
+            text: $t:archived
+            value: archived
         showAsDot: true
       field: status
       group: null
@@ -599,15 +600,15 @@ fields:
       note: null
       options:
         choices:
-          - text: $t:published
+          - color: var(--theme--primary)
+            text: $t:published
             value: published
-            color: var(--theme--primary)
-          - text: $t:draft
+          - color: var(--theme--foreground)
+            text: $t:draft
             value: draft
-            color: var(--theme--foreground)
-          - text: $t:archived
+          - color: var(--theme--warning)
+            text: $t:archived
             value: archived
-            color: var(--theme--warning)
       readonly: false
       required: false
       sort: 2
@@ -626,6 +627,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -666,6 +668,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -706,6 +709,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -746,6 +750,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -786,6 +791,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -824,6 +830,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -862,6 +869,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -900,6 +908,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -940,6 +949,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -979,6 +989,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1018,6 +1029,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1056,6 +1068,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1094,6 +1107,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1134,6 +1148,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1174,6 +1189,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1214,6 +1230,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1254,6 +1271,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1292,6 +1310,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1330,6 +1349,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1392,6 +1412,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1432,6 +1453,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1472,6 +1494,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1512,6 +1535,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1552,6 +1576,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1590,6 +1615,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1628,6 +1654,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1666,6 +1693,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1704,126 +1732,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_extensions
-    field: name
-    type: string
-    meta: null
-    schema:
-      name: name
-      table: directus_extensions
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_permissions
-    field: role
-    type: uuid
-    meta: null
-    schema:
-      name: role
-      table: directus_permissions
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_roles
-      foreign_key_column: id
-  - collection: directus_roles
-    field: ip_access
-    type: text
-    meta: null
-    schema:
-      name: ip_access
-      table: directus_roles
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: enforce_tfa
-    type: boolean
-    meta: null
-    schema:
-      name: enforce_tfa
-      table: directus_roles
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: admin_access
-    type: boolean
-    meta: null
-    schema:
-      name: admin_access
-      table: directus_roles
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: directus_roles
-    field: app_access
-    type: boolean
-    meta: null
-    schema:
-      name: app_access
-      table: directus_roles
-      data_type: boolean
-      default_value: true
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1863,6 +1772,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1901,6 +1811,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1939,6 +1850,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1979,6 +1891,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2019,6 +1932,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2057,6 +1971,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2096,6 +2011,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2159,6 +2075,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -2197,6 +2114,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2237,6 +2155,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2277,6 +2196,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2317,6 +2237,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2357,6 +2278,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2395,6 +2317,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2433,6 +2356,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2471,6 +2395,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2509,6 +2434,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -2524,21 +2450,21 @@ fields:
       display: labels
       display_options:
         choices:
-          - text: $t:published
-            value: published
+          - background: var(--theme--primary-background)
             color: var(--theme--primary)
             foreground: var(--theme--primary)
-            background: var(--theme--primary-background)
-          - text: $t:draft
-            value: draft
+            text: $t:published
+            value: published
+          - background: var(--theme--background-normal)
             color: var(--theme--foreground)
             foreground: var(--theme--foreground)
-            background: var(--theme--background-normal)
-          - text: $t:archived
-            value: archived
+            text: $t:draft
+            value: draft
+          - background: var(--theme--warning-background)
             color: var(--theme--warning)
             foreground: var(--theme--warning)
-            background: var(--theme--warning-background)
+            text: $t:archived
+            value: archived
         showAsDot: true
       field: status
       group: null
@@ -2547,15 +2473,15 @@ fields:
       note: null
       options:
         choices:
-          - text: $t:published
+          - color: var(--theme--primary)
+            text: $t:published
             value: published
-            color: var(--theme--primary)
-          - text: $t:draft
+          - color: var(--theme--foreground)
+            text: $t:draft
             value: draft
-            color: var(--theme--foreground)
-          - text: $t:archived
+          - color: var(--theme--warning)
+            text: $t:archived
             value: archived
-            color: var(--theme--warning)
       readonly: false
       required: false
       sort: 2
@@ -2574,6 +2500,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2612,6 +2539,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2652,6 +2580,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2692,6 +2621,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2732,6 +2662,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2772,6 +2703,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2810,6 +2742,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2848,6 +2781,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2887,6 +2821,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2951,6 +2886,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2989,6 +2925,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3027,6 +2964,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3065,6 +3003,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3103,6 +3042,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3141,6 +3081,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3179,6 +3120,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3219,6 +3161,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3259,6 +3202,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3299,6 +3243,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3339,6 +3284,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3378,6 +3324,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3416,6 +3363,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3455,6 +3403,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3493,6 +3442,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3531,6 +3481,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3571,6 +3522,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3611,6 +3563,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3651,6 +3604,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3691,6 +3645,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3753,6 +3708,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3791,6 +3747,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3829,6 +3786,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3867,6 +3825,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3905,6 +3864,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3943,6 +3903,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3981,6 +3942,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4021,6 +3983,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4061,6 +4024,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4101,6 +4065,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4141,6 +4106,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4179,6 +4145,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4226,6 +4193,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4264,6 +4232,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4304,6 +4273,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4344,6 +4314,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4409,6 +4380,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4447,6 +4419,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4485,6 +4458,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4523,6 +4497,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4561,6 +4536,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4599,6 +4575,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4637,6 +4614,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4677,6 +4655,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4717,6 +4696,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4757,6 +4737,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4797,6 +4778,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4835,6 +4817,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4857,30 +4840,30 @@ fields:
       options:
         fields:
           - field: title
-            name: title
-            type: text
             meta:
               field: title
-              width: half
-              type: text
               interface: input
-          - field: groups_with
-            name: groups_with
+              type: text
+              width: half
+            name: title
             type: text
+          - field: groups_with
             meta:
               field: groups_with
-              width: half
-              type: text
-              required: false
               interface: input
-          - field: url
-            name: url
+              required: false
+              type: text
+              width: half
+            name: groups_with
             type: text
+          - field: url
             meta:
               field: url
-              width: full
-              type: text
               interface: input
+              type: text
+              width: full
+            name: url
+            type: text
       readonly: false
       required: false
       sort: 7
@@ -4900,6 +4883,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4938,6 +4922,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4978,6 +4963,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5018,6 +5004,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5058,6 +5045,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5098,6 +5086,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5136,6 +5125,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5174,6 +5164,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5212,6 +5203,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5227,21 +5219,21 @@ fields:
       display: labels
       display_options:
         choices:
-          - text: $t:published
-            value: published
+          - background: var(--theme--primary-background)
             color: var(--theme--primary)
             foreground: var(--theme--primary)
-            background: var(--theme--primary-background)
-          - text: $t:draft
-            value: draft
+            text: $t:published
+            value: published
+          - background: var(--theme--background-normal)
             color: var(--theme--foreground)
             foreground: var(--theme--foreground)
-            background: var(--theme--background-normal)
-          - text: $t:archived
-            value: archived
+            text: $t:draft
+            value: draft
+          - background: var(--theme--warning-background)
             color: var(--theme--warning)
             foreground: var(--theme--warning)
-            background: var(--theme--warning-background)
+            text: $t:archived
+            value: archived
         showAsDot: true
       field: status
       group: null
@@ -5250,15 +5242,15 @@ fields:
       note: null
       options:
         choices:
-          - text: $t:published
+          - color: var(--theme--primary)
+            text: $t:published
             value: published
-            color: var(--theme--primary)
-          - text: $t:draft
+          - color: var(--theme--foreground)
+            text: $t:draft
             value: draft
-            color: var(--theme--foreground)
-          - text: $t:archived
+          - color: var(--theme--warning)
+            text: $t:archived
             value: archived
-            color: var(--theme--warning)
       readonly: false
       required: false
       sort: 2
@@ -5277,6 +5269,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5317,6 +5310,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5357,6 +5351,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5397,6 +5392,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5437,6 +5433,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5475,6 +5472,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5514,6 +5512,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5553,6 +5552,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5591,6 +5591,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5631,6 +5632,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5671,6 +5673,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5711,6 +5714,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5751,6 +5755,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5813,6 +5818,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5851,6 +5857,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5889,6 +5896,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5927,6 +5935,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5965,6 +5974,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5980,21 +5990,21 @@ fields:
       display: labels
       display_options:
         choices:
-          - text: $t:published
-            value: published
+          - background: var(--theme--primary-background)
             color: var(--theme--primary)
             foreground: var(--theme--primary)
-            background: var(--theme--primary-background)
-          - text: $t:draft
-            value: draft
+            text: $t:published
+            value: published
+          - background: var(--theme--background-normal)
             color: var(--theme--foreground)
             foreground: var(--theme--foreground)
-            background: var(--theme--background-normal)
-          - text: $t:archived
-            value: archived
+            text: $t:draft
+            value: draft
+          - background: var(--theme--warning-background)
             color: var(--theme--warning)
             foreground: var(--theme--warning)
-            background: var(--theme--warning-background)
+            text: $t:archived
+            value: archived
         showAsDot: true
       field: status
       group: null
@@ -6003,15 +6013,15 @@ fields:
       note: null
       options:
         choices:
-          - text: $t:published
+          - color: var(--theme--primary)
+            text: $t:published
             value: published
-            color: var(--theme--primary)
-          - text: $t:draft
+          - color: var(--theme--foreground)
+            text: $t:draft
             value: draft
-            color: var(--theme--foreground)
-          - text: $t:archived
+          - color: var(--theme--warning)
+            text: $t:archived
             value: archived
-            color: var(--theme--warning)
       readonly: false
       required: false
       sort: 2
@@ -6030,6 +6040,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6070,6 +6081,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6110,6 +6122,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6150,6 +6163,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6190,6 +6204,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6217,14 +6232,10 @@ fields:
       translations: null
       validation:
         _and:
-          - _or:
-              - path:
-                  _eq: /
-              - _and:
-                  - path:
-                      _nstarts_with: /
-                  - path:
-                      _nends_with: /
+          - path:
+              _nstarts_with: /
+          - path:
+              _nends_with: /
       validation_message: null
       width: full
     schema:
@@ -6235,8 +6246,9 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
-      is_nullable: true
+      is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6275,6 +6287,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6313,6 +6326,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6351,6 +6365,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6390,6 +6405,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6452,6 +6468,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -6490,6 +6507,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6528,6 +6546,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6566,6 +6585,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6604,6 +6624,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6642,6 +6663,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -6682,6 +6704,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6722,6 +6745,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6762,6 +6786,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6802,6 +6827,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6840,6 +6866,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7034,18 +7061,6 @@ relations:
       foreign_key_table: card_grids
       foreign_key_column: id
       constraint_name: cards_fk_card_grids_foreign
-      on_update: NO ACTION
-      on_delete: CASCADE
-  - collection: directus_permissions
-    field: role
-    related_collection: directus_roles
-    meta: null
-    schema:
-      table: directus_permissions
-      column: role
-      foreign_key_table: directus_roles
-      foreign_key_column: id
-      constraint_name: directus_permissions_role_foreign
       on_update: NO ACTION
       on_delete: CASCADE
   - collection: directus_users
@@ -7869,11 +7884,11 @@ relations:
       one_allowed_collections:
         - activities
         - card_grids
-        - image_text_columns
         - location_grids
         - locations
         - news_lists
         - rich_text
+        - image_text_columns
       one_collection: null
       one_collection_field: collection
       one_deselect_action: nullify

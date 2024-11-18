@@ -36,6 +36,8 @@ bun install
 
 Once the devcontainer is running, you can access the Directus CMS at [http://localhost:8055](http://localhost:8055).
 
+On the first install, you will have to wait for Directus to finish setting up the database. Make sure you are able to access the login page before continuing.
+
 To load the schema, run the following command in the terminal:
 
 ```bash
@@ -44,7 +46,7 @@ bun directus-apply
 
 Login with the default credentials `admin@example.com` and `d1r3ctu5`.
 
-Create a random new Collection to fix the No Permission error. You can delete it afterwards.
+To fix the "You don't have permission to access this." error, you can create a random collection and delete it afterwards.
 
 ### Frontend Setup
 
