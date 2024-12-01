@@ -6232,10 +6232,14 @@ fields:
       translations: null
       validation:
         _and:
-          - path:
-              _nstarts_with: /
-          - path:
-              _nends_with: /
+          - _or:
+              - path:
+                  _eq: /
+              - _and:
+                  - path:
+                      _nstarts_with: /
+                  - path:
+                      _nends_with: /
       validation_message: null
       width: full
     schema:
