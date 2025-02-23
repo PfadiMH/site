@@ -1,3 +1,5 @@
+This Project has been abandoned, please view the [Puck Project](https://github.com/pfadimh/puck) for the up to date site.
+
 # PfadiMH Website
 
 ## Getting Started
